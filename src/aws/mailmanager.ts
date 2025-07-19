@@ -1,7 +1,7 @@
 const completionSpec: Fig.Spec = {
   name: "mailmanager",
   description:
-    "AWS SES Mail Manager API  AWS SES Mail Manager API contains operations and data types that comprise the Mail Manager feature of Amazon Simple Email Service. Mail Manager is a set of Amazon SES email gateway features designed to help you strengthen your organization's email infrastructure, simplify email workflow management, and streamline email compliance control. To learn more, see the Mail Manager chapter in the Amazon SES Developer Guide",
+    "Amazon SES Mail Manager API The Amazon SES Mail Manager API contains operations and data types that comprise the Mail Manager feature of Amazon Simple Email Service (SES). Mail Manager is a set of Amazon SES email gateway features designed to help you strengthen your organization's email infrastructure, simplify email workflow management, and streamline email compliance control. To learn more, see the Mail Manager chapter in the Amazon SES Developer Guide",
   subcommands: [
     {
       name: "create-addon-instance",
@@ -1587,6 +1587,16 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--include-metadata",
+          description:
+            "Whether to include message metadata as JSON files in the export",
+        },
+        {
+          name: "--no-include-metadata",
+          description:
+            "Whether to include message metadata as JSON files in the export",
+        },
+        {
           name: "--max-results",
           description:
             "The maximum number of email items to include in the export",
@@ -1994,7 +2004,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "update-rule-set",
-      description: ">Update attributes of an already provisioned rule set",
+      description: "Update attributes of an already provisioned rule set",
       options: [
         {
           name: "--rule-set-id",

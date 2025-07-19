@@ -1,7 +1,7 @@
 const completionSpec: Fig.Spec = {
   name: "fis",
   description:
-    "Fault Injection Service is a managed service that enables you to perform fault injection experiments on your Amazon Web Services workloads. For more information, see the Fault Injection Service User Guide",
+    "Amazon Web Services Fault Injection Service is a managed service that enables you to perform fault injection experiments on your Amazon Web Services workloads. For more information, see the Fault Injection Service User Guide",
   subcommands: [
     {
       name: "create-experiment-template",
@@ -69,6 +69,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--experiment-options",
           description: "The experiment options for the experiment template",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--experiment-report-configuration",
+          description:
+            "The experiment report configuration for the experiment template",
           args: {
             name: "structure",
           },
@@ -329,6 +337,36 @@ const completionSpec: Fig.Spec = {
         {
           name: "--id",
           description: "The ID of the experiment template",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-safety-lever",
+      description: "Gets information about the specified safety lever",
+      options: [
+        {
+          name: "--id",
+          description: "The ID of the safety lever",
           args: {
             name: "string",
           },
@@ -961,6 +999,51 @@ const completionSpec: Fig.Spec = {
         {
           name: "--experiment-options",
           description: "The experiment options for the experiment template",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--experiment-report-configuration",
+          description:
+            "The experiment report configuration for the experiment template",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-safety-lever-state",
+      description: "Updates the specified safety lever state",
+      options: [
+        {
+          name: "--id",
+          description: "The ID of the safety lever",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--state",
+          description: "The state of the safety lever",
           args: {
             name: "structure",
           },

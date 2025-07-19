@@ -133,7 +133,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--protocol",
           description:
-            "The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can\u2019t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer",
+            "The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can\u2019t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer",
           args: {
             name: "string",
           },
@@ -141,7 +141,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--port",
           description:
-            "The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer",
+            "The port on which the load balancer is listening. You can't specify a port for a Gateway Load Balancer",
           args: {
             name: "integer",
           },
@@ -226,7 +226,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--subnets",
           description:
-            "The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets. [Application Load Balancers] You must specify subnets from at least two Availability Zones. [Application Load Balancers on Outposts] You must specify one Outpost subnet. [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones. [Network Load Balancers] You can specify subnets from one or more Availability Zones. [Gateway Load Balancers] You can specify subnets from one or more Availability Zones",
+            "The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets. [Application Load Balancers] You must specify subnets from at least two Availability Zones. [Application Load Balancers on Outposts] You must specify one Outpost subnet. [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones. [Network Load Balancers and Gateway Load Balancers] You can specify subnets from one or more Availability Zones",
           args: {
             name: "list",
           },
@@ -234,7 +234,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--subnet-mappings",
           description:
-            "The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets. [Application Load Balancers on Outposts] You must specify one Outpost subnet. [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones. [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet. [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP addresses for your subnets",
+            "The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. [Application Load Balancers] You must specify subnets from at least two Availability Zones. You can't specify Elastic IP addresses for your subnets. [Application Load Balancers on Outposts] You must specify one Outpost subnet. [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones. [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet. [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You can't specify Elastic IP addresses for your subnets",
           args: {
             name: "list",
           },
@@ -250,7 +250,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--scheme",
           description:
-            "The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer. You cannot specify a scheme for a Gateway Load Balancer",
+            "The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer. You can't specify a scheme for a Gateway Load Balancer",
           args: {
             name: "string",
           },
@@ -272,7 +272,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--ip-address-type",
           description:
-            "Note: Internal load balancers must use the ipv4 IP address type. [Application Load Balancers] The IP address type. The possible values are ipv4 (for only IPv4 addresses), dualstack (for IPv4 and IPv6 addresses), and dualstack-without-public-ipv4 (for IPv6 only public addresses, with private IPv4 and IPv6 addresses). [Network Load Balancers] The IP address type. The possible values are ipv4 (for only IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses). You can\u2019t specify dualstack for a load balancer with a UDP or TCP_UDP listener. [Gateway Load Balancers] The IP address type. The possible values are ipv4 (for only IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses)",
+            "The IP address type. Internal load balancers must use ipv4. [Application Load Balancers] The possible values are ipv4 (IPv4 addresses), dualstack (IPv4 and IPv6 addresses), and dualstack-without-public-ipv4 (public IPv6 addresses and private IPv4 and IPv6 addresses). [Network Load Balancers and Gateway Load Balancers] The possible values are ipv4 (IPv4 addresses) and dualstack (IPv4 and IPv6 addresses)",
           args: {
             name: "string",
           },
@@ -281,6 +281,14 @@ const completionSpec: Fig.Spec = {
           name: "--customer-owned-ipv4-pool",
           description:
             "[Application Load Balancers on Outposts] The ID of the customer-owned address pool (CoIP pool)",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--enable-prefix-for-ipv6-source-nat",
+          description:
+            "[Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be dualstack. The default value is off",
           args: {
             name: "string",
           },
@@ -428,12 +436,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--health-check-enabled",
           description:
-            "Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled",
+            "Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and can't be disabled",
         },
         {
           name: "--no-health-check-enabled",
           description:
-            "Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled",
+            "Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and can't be disabled",
         },
         {
           name: "--health-check-path",
@@ -500,8 +508,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--ip-address-type",
-          description:
-            "The type of IP address used for this target group. The possible values are ipv4 and ipv6. This is an optional parameter. If not specified, the IP address type defaults to ipv4",
+          description: "The IP address type. The default value is ipv4",
           args: {
             name: "string",
           },
@@ -532,7 +539,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--name",
           description:
-            "The name of the trust store. This name must be unique per region and cannot be changed after creation",
+            "The name of the trust store. This name must be unique per region and can't be changed after creation",
           args: {
             name: "string",
           },
@@ -655,6 +662,43 @@ const completionSpec: Fig.Spec = {
         {
           name: "--rule-arn",
           description: "The Amazon Resource Name (ARN) of the rule",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-shared-trust-store-association",
+      description: "Deletes a shared trust store association",
+      options: [
+        {
+          name: "--trust-store-arn",
+          description: "The Amazon Resource Name (ARN) of the trust store",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--resource-arn",
+          description: "The Amazon Resource Name (ARN) of the resource",
           args: {
             name: "string",
           },
@@ -821,6 +865,67 @@ const completionSpec: Fig.Spec = {
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-capacity-reservation",
+      description:
+        "Describes the capacity reservation status for the specified load balancer",
+      options: [
+        {
+          name: "--load-balancer-arn",
+          description: "The Amazon Resource Name (ARN) of the load balancer",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-listener-attributes",
+      description: "Describes the attributes for the specified listener",
+      options: [
+        {
+          name: "--listener-arn",
+          description: "The Amazon Resource Name (ARN) of the listener",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
           },
         },
         {
@@ -1371,7 +1476,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--include",
-          description: "Used to inclue anomaly detection information",
+          description: "Used to include anomaly detection information",
           args: {
             name: "list",
           },
@@ -1444,7 +1549,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-trust-store-revocations",
       description:
-        "Describes the revocation files in use by the specified trust store arn, or revocation ID",
+        "Describes the revocation files in use by the specified trust store or revocation files",
       options: [
         {
           name: "--trust-store-arn",
@@ -1497,8 +1602,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "describe-trust-stores",
-      description:
-        "Describes all trust stores for a given account by trust store arn\u2019s or name",
+      description: "Describes all trust stores for the specified account",
       options: [
         {
           name: "--trust-store-arns",
@@ -1527,6 +1631,36 @@ const completionSpec: Fig.Spec = {
           description: "The maximum number of results to return with this call",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-resource-policy",
+      description: "Retrieves the resource policy for a specified resource",
+      options: [
+        {
+          name: "--resource-arn",
+          description: "The Amazon Resource Name (ARN) of the resource",
+          args: {
+            name: "string",
           },
         },
         {
@@ -1618,6 +1752,52 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "modify-capacity-reservation",
+      description:
+        "Modifies the capacity reservation of the specified load balancer. When modifying capacity reservation, you must include at least one MinimumLoadBalancerCapacity or ResetCapacityReservation",
+      options: [
+        {
+          name: "--load-balancer-arn",
+          description: "The Amazon Resource Name (ARN) of the load balancer",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--minimum-load-balancer-capacity",
+          description: "The minimum load balancer capacity reserved",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--reset-capacity-reservation",
+          description: "Resets the capacity reservation",
+        },
+        {
+          name: "--no-reset-capacity-reservation",
+          description: "Resets the capacity reservation",
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "modify-listener",
       description:
         "Replaces the specified properties of the specified listener. Any properties that you do not specify remain unchanged. Changing the protocol from HTTPS to HTTP, or from TLS to TCP, removes the security policy and default certificate properties. If you change the protocol from HTTP to HTTPS, or from TCP to TLS, you must add the security policy and default certificate properties. To add an item to a list, remove an item from a list, or update an item in a list, you must provide the entire list. For example, to add an action, specify a list with the current actions plus the new action",
@@ -1632,7 +1812,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--port",
           description:
-            "The port for connections from clients to the load balancer. You cannot specify a port for a Gateway Load Balancer",
+            "The port for connections from clients to the load balancer. You can't specify a port for a Gateway Load Balancer",
           args: {
             name: "integer",
           },
@@ -1640,7 +1820,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--protocol",
           description:
-            "The protocol for connections from clients to the load balancer. Application Load Balancers support the HTTP and HTTPS protocols. Network Load Balancers support the TCP, TLS, UDP, and TCP_UDP protocols. You can\u2019t change the protocol to UDP or TCP_UDP if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer",
+            "The protocol for connections from clients to the load balancer. Application Load Balancers support the HTTP and HTTPS protocols. Network Load Balancers support the TCP, TLS, UDP, and TCP_UDP protocols. You can\u2019t change the protocol to UDP or TCP_UDP if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer",
           args: {
             name: "string",
           },
@@ -1681,6 +1861,44 @@ const completionSpec: Fig.Spec = {
           description: "The mutual authentication configuration information",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "modify-listener-attributes",
+      description:
+        "Modifies the specified attributes of the specified listener",
+      options: [
+        {
+          name: "--listener-arn",
+          description: "The Amazon Resource Name (ARN) of the listener",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--attributes",
+          description: "The listener attributes",
+          args: {
+            name: "list",
           },
         },
         {
@@ -1902,7 +2120,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--attributes",
-          description: "The attributes",
+          description: "The target group attributes",
           args: {
             name: "list",
           },
@@ -1928,7 +2146,8 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "modify-trust-store",
-      description: "Update the ca certificate bundle for a given trust store",
+      description:
+        "Update the ca certificate bundle for the specified trust store",
       options: [
         {
           name: "--trust-store-arn",
@@ -1981,7 +2200,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "register-targets",
       description:
-        "Registers the specified targets with the specified target group. If the target is an EC2 instance, it must be in the running state when you register it. By default, the load balancer routes requests to registered targets using the protocol and port for the target group. Alternatively, you can override the port for a target when you register it. You can register each EC2 instance or IP address with the same target group multiple times using different ports. With a Network Load Balancer, you cannot register instances by instance ID if they have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1. You can register instances of these types by IP address",
+        "Registers the specified targets with the specified target group. If the target is an EC2 instance, it must be in the running state when you register it. By default, the load balancer routes requests to registered targets using the protocol and port for the target group. Alternatively, you can override the port for a target when you register it. You can register each EC2 instance or IP address with the same target group multiple times using different ports. With a Network Load Balancer, you can't register instances by instance ID if they have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1. You can register instances of these types by IP address",
       options: [
         {
           name: "--target-group-arn",
@@ -2147,7 +2366,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--ip-address-type",
           description:
-            "Note: Internal load balancers must use the ipv4 IP address type. [Application Load Balancers] The IP address type. The possible values are ipv4 (for only IPv4 addresses), dualstack (for IPv4 and IPv6 addresses), and dualstack-without-public-ipv4 (for IPv6 only public addresses, with private IPv4 and IPv6 addresses). [Network Load Balancers] The IP address type. The possible values are ipv4 (for only IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses). You can\u2019t specify dualstack for a load balancer with a UDP or TCP_UDP listener. [Gateway Load Balancers] The IP address type. The possible values are ipv4 (for only IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses)",
+            "The IP address type. Internal load balancers must use ipv4. [Application Load Balancers] The possible values are ipv4 (IPv4 addresses), dualstack (IPv4 and IPv6 addresses), and dualstack-without-public-ipv4 (public IPv6 addresses and private IPv4 and IPv6 addresses). Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors. [Network Load Balancers and Gateway Load Balancers] The possible values are ipv4 (IPv4 addresses) and dualstack (IPv4 and IPv6 addresses)",
           args: {
             name: "string",
           },
@@ -2263,7 +2482,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--subnets",
           description:
-            "The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings. [Application Load Balancers] You must specify subnets from at least two Availability Zones. [Application Load Balancers on Outposts] You must specify one Outpost subnet. [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones. [Network Load Balancers] You can specify subnets from one or more Availability Zones. [Gateway Load Balancers] You can specify subnets from one or more Availability Zones",
+            "The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings. [Application Load Balancers] You must specify subnets from at least two Availability Zones. [Application Load Balancers on Outposts] You must specify one Outpost subnet. [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones. [Network Load Balancers and Gateway Load Balancers] You can specify subnets from one or more Availability Zones",
           args: {
             name: "list",
           },
@@ -2271,7 +2490,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--subnet-mappings",
           description:
-            "The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings. [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets. [Application Load Balancers on Outposts] You must specify one Outpost subnet. [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones. [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet. [Gateway Load Balancers] You can specify subnets from one or more Availability Zones",
+            "The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings. [Application Load Balancers] You must specify subnets from at least two Availability Zones. You can't specify Elastic IP addresses for your subnets. [Application Load Balancers on Outposts] You must specify one Outpost subnet. [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones. [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet. [Gateway Load Balancers] You can specify subnets from one or more Availability Zones",
           args: {
             name: "list",
           },
@@ -2279,7 +2498,15 @@ const completionSpec: Fig.Spec = {
         {
           name: "--ip-address-type",
           description:
-            "[Application Load Balancers] The IP address type. The possible values are ipv4 (for only IPv4 addresses), dualstack (for IPv4 and IPv6 addresses), and dualstack-without-public-ipv4 (for IPv6 only public addresses, with private IPv4 and IPv6 addresses). [Network Load Balancers] The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses). You can\u2019t specify dualstack for a load balancer with a UDP or TCP_UDP listener. [Gateway Load Balancers] The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses)",
+            "The IP address type. [Application Load Balancers] The possible values are ipv4 (IPv4 addresses), dualstack (IPv4 and IPv6 addresses), and dualstack-without-public-ipv4 (public IPv6 addresses and private IPv4 and IPv6 addresses). [Network Load Balancers and Gateway Load Balancers] The possible values are ipv4 (IPv4 addresses) and dualstack (IPv4 and IPv6 addresses)",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--enable-prefix-for-ipv6-source-nat",
+          description:
+            "[Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be dualstack. The default value is off",
           args: {
             name: "string",
           },
@@ -2542,7 +2769,7 @@ const completionSpec: Fig.Spec = {
             },
             {
               name: "--include",
-              description: "Used to inclue anomaly detection information",
+              description: "Used to include anomaly detection information",
               args: {
                 name: "list",
               },
@@ -2587,7 +2814,7 @@ const completionSpec: Fig.Spec = {
             },
             {
               name: "--include",
-              description: "Used to inclue anomaly detection information",
+              description: "Used to include anomaly detection information",
               args: {
                 name: "list",
               },

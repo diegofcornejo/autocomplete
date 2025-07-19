@@ -78,7 +78,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--location-uri",
           description:
-            "A URI to locate the configuration. You can specify the following:   For the AppConfig hosted configuration store and for feature flags, specify hosted.   For an Amazon Web Services Systems Manager Parameter Store parameter, specify either the parameter name in the format ssm-parameter://<parameter name> or the ARN.   For an Amazon Web Services CodePipeline pipeline, specify the URI in the following format: codepipeline://<pipeline name>.   For an Secrets Manager secret, specify the URI in the following format: secretsmanager://<secret name>.   For an Amazon S3 object, specify the URI in the following format: s3://<bucket>/<objectKey> . Here is an example: s3://my-bucket/my-app/us-east-1/my-config.json    For an SSM document, specify either the document name in the format ssm-document://<document name> or the Amazon Resource Name (ARN)",
+            "A URI to locate the configuration. You can specify the following:   For the AppConfig hosted configuration store and for feature flags, specify hosted.   For an Amazon Web Services Systems Manager Parameter Store parameter, specify either the parameter name in the format ssm-parameter://<parameter name> or the ARN.   For an Amazon Web Services CodePipeline pipeline, specify the URI in the following format: codepipeline://<pipeline name>.   For an Secrets Manager secret, specify the URI in the following format: secretsmanager://<secret name>.   For an Amazon S3 object, specify the URI in the following format: s3://<bucket>/<objectKey> . Here is an example: s3://amzn-s3-demo-bucket/my-app/us-east-1/my-config.json    For an SSM document, specify either the document name in the format ssm-document://<document name> or the Amazon Resource Name (ARN)",
           args: {
             name: "string",
           },
@@ -424,7 +424,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-hosted-configuration-version",
       description:
-        "Creates a new configuration in the AppConfig hosted configuration store",
+        "Creates a new configuration in the AppConfig hosted configuration store. If you're creating a feature flag, we recommend you familiarize yourself with the JSON schema for feature flag data. For more information, see Type reference for AWS.AppConfig.FeatureFlags in the AppConfig User Guide",
       options: [
         {
           name: "--application-id",
@@ -450,7 +450,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--content",
           description:
-            "The content of the configuration or the configuration data",
+            "The configuration data, as bytes.  AppConfig accepts any type of data, including text formats like JSON or TOML, or binary formats like protocol buffers or compressed data",
           args: {
             name: "blob",
           },
@@ -490,8 +490,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "delete-application",
-      description:
-        "Deletes an application. Deleting an application does not delete a configuration from a host",
+      description: "Deletes an application",
       options: [
         {
           name: "--application-id",
@@ -522,7 +521,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-configuration-profile",
       description:
-        "Deletes a configuration profile. Deleting a configuration profile does not delete a configuration from a host",
+        "Deletes a configuration profile. To prevent users from unintentionally deleting actively-used configuration profiles, enable deletion protection",
       options: [
         {
           name: "--application-id",
@@ -535,6 +534,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--configuration-profile-id",
           description: "The ID of the configuration profile you want to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--deletion-protection-check",
+          description:
+            "A parameter to configure deletion protection. If enabled, deletion protection prevents a user from deleting a configuration profile if your application has called either GetLatestConfiguration or for the configuration profile during the specified interval.  This parameter supports the following values:    BYPASS: Instructs AppConfig to bypass the deletion protection check and delete a configuration profile even if deletion protection would have otherwise prevented it.     APPLY: Instructs the deletion protection check to run, even if deletion protection is disabled at the account level. APPLY also forces the deletion protection check to run against resources created in the past hour, which are normally excluded from deletion protection checks.     ACCOUNT_DEFAULT: The default setting, which instructs AppConfig to implement the deletion protection value specified in the UpdateAccountSettings API",
           args: {
             name: "string",
           },
@@ -560,8 +567,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "delete-deployment-strategy",
-      description:
-        "Deletes a deployment strategy. Deleting a deployment strategy does not delete a configuration from a host",
+      description: "Deletes a deployment strategy",
       options: [
         {
           name: "--deployment-strategy-id",
@@ -592,8 +598,15 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-environment",
       description:
-        "Deletes an environment. Deleting an environment does not delete a configuration from a host",
+        "Deletes an environment. To prevent users from unintentionally deleting actively-used environments, enable deletion protection",
       options: [
+        {
+          name: "--environment-id",
+          description: "The ID of the environment that you want to delete",
+          args: {
+            name: "string",
+          },
+        },
         {
           name: "--application-id",
           description:
@@ -603,8 +616,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--environment-id",
-          description: "The ID of the environment that you want to delete",
+          name: "--deletion-protection-check",
+          description:
+            "A parameter to configure deletion protection. If enabled, deletion protection prevents a user from deleting an environment if your application called either GetLatestConfiguration or in the environment during the specified interval.  This parameter supports the following values:    BYPASS: Instructs AppConfig to bypass the deletion protection check and delete a configuration profile even if deletion protection would have otherwise prevented it.     APPLY: Instructs the deletion protection check to run, even if deletion protection is disabled at the account level. APPLY also forces the deletion protection check to run against resources created in the past hour, which are normally excluded from deletion protection checks.     ACCOUNT_DEFAULT: The default setting, which instructs AppConfig to implement the deletion protection value specified in the UpdateAccountSettings API",
           args: {
             name: "string",
           },
@@ -745,6 +759,30 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-account-settings",
+      description:
+        "Returns information about the status of the DeletionProtection parameter",
+      options: [
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "get-application",
       description: "Retrieves information about an application",
       options: [
@@ -814,7 +852,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--client-configuration-version",
           description:
-            "The configuration version returned in the most recent GetConfiguration response.  AppConfig uses the value of the ClientConfigurationVersion parameter to identify the configuration version on your clients. If you don\u2019t send ClientConfigurationVersion with each call to GetConfiguration, your clients receive the current configuration. You are charged each time your clients receive a configuration. To avoid excess charges, we recommend you use the StartConfigurationSession and GetLatestConfiguration APIs, which track the client configuration version on your behalf. If you choose to continue using GetConfiguration, we recommend that you include the ClientConfigurationVersion value with every call to GetConfiguration. The value to use for ClientConfigurationVersion comes from the ConfigurationVersion attribute returned by GetConfiguration when there is new or updated data, and should be saved for subsequent calls to GetConfiguration.  For more information about working with configurations, see Retrieving the Configuration in the AppConfig User Guide",
+            "The configuration version returned in the most recent GetConfiguration response.  AppConfig uses the value of the ClientConfigurationVersion parameter to identify the configuration version on your clients. If you don\u2019t send ClientConfigurationVersion with each call to GetConfiguration, your clients receive the current configuration. You are charged each time your clients receive a configuration. To avoid excess charges, we recommend you use the StartConfigurationSession and GetLatestConfiguration APIs, which track the client configuration version on your behalf. If you choose to continue using GetConfiguration, we recommend that you include the ClientConfigurationVersion value with every call to GetConfiguration. The value to use for ClientConfigurationVersion comes from the ConfigurationVersion attribute returned by GetConfiguration when there is new or updated data, and should be saved for subsequent calls to GetConfiguration.  For more information about working with configurations, see Retrieving feature flags and configuration data in AppConfig in the AppConfig User Guide",
           args: {
             name: "string",
           },
@@ -1621,7 +1659,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--max-results",
           description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
+            "The maximum number of items to return for this call. If MaxResults is not provided in the call, AppConfig returns the maximum of 50. The call also returns a token that you can specify in a subsequent call to get the next set of results",
           args: {
             name: "integer",
           },
@@ -1809,7 +1847,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "stop-deployment",
       description:
-        "Stops a deployment. This API action works only on deployments that have a status of DEPLOYING. This action moves the deployment to a status of ROLLED_BACK",
+        "Stops a deployment. This API action works only on deployments that have a status of DEPLOYING, unless an AllowRevert parameter is supplied. If the AllowRevert parameter is supplied, the status of an in-progress deployment will be ROLLED_BACK. The status of a completed deployment will be REVERTED. AppConfig only allows a revert within 72 hours of deployment completion",
       options: [
         {
           name: "--application-id",
@@ -1831,6 +1869,16 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "integer",
           },
+        },
+        {
+          name: "--allow-revert",
+          description:
+            "A Boolean that enables AppConfig to rollback a COMPLETED deployment to the previous configuration version. This action moves the deployment to a status of REVERTED",
+        },
+        {
+          name: "--no-allow-revert",
+          description:
+            "A Boolean that enables AppConfig to rollback a COMPLETED deployment to the previous configuration version. This action moves the deployment to a status of REVERTED",
         },
         {
           name: "--cli-input-json",
@@ -1906,6 +1954,37 @@ const completionSpec: Fig.Spec = {
           description: "The tag keys to delete",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-account-settings",
+      description: "Updates the value of the DeletionProtection parameter",
+      options: [
+        {
+          name: "--deletion-protection",
+          description:
+            "A parameter to configure deletion protection. If enabled, deletion protection prevents a user from deleting a configuration profile or an environment if AppConfig has called either GetLatestConfiguration or for the configuration profile or from the environment during the specified interval. Deletion protection is disabled by default. The default interval for ProtectionPeriodInMinutes is 60",
+          args: {
+            name: "structure",
           },
         },
         {

@@ -1,7 +1,7 @@
 const completionSpec: Fig.Spec = {
   name: "pinpoint-sms-voice-v2",
   description:
-    "Welcome to the Amazon Pinpoint SMS and Voice, version 2 API Reference. This guide provides information about Amazon Pinpoint SMS and Voice, version 2 API resources, including supported HTTP methods, parameters, and schemas. Amazon Pinpoint is an Amazon Web Services service that you can use to engage with your recipients across multiple messaging channels. The Amazon Pinpoint SMS and Voice, version 2 API provides programmatic access to options that are unique to the SMS and voice channels. Amazon Pinpoint SMS and Voice, version 2 resources such as phone numbers, sender IDs, and opt-out lists can be used by the Amazon Pinpoint API. If you're new to Amazon Pinpoint SMS, it's also helpful to review the  Amazon Pinpoint SMS User Guide. The Amazon Pinpoint Developer Guide provides tutorials, code samples, and procedures that demonstrate how to use Amazon Pinpoint SMS features programmatically and how to integrate Amazon Pinpoint functionality into mobile apps and other types of applications. The guide also provides key information, such as Amazon Pinpoint integration with other Amazon Web Services services, and the quotas that apply to use of the service.  Regional availability  The Amazon Pinpoint SMS and Voice, version 2 API Reference is available in several Amazon Web Services Regions and it provides an endpoint for each of these Regions. For a list of all the Regions and endpoints where the API is currently available, see Amazon Web Services Service Endpoints and Amazon Pinpoint endpoints and quotas in the Amazon Web Services General Reference. To learn more about Amazon Web Services Regions, see Managing Amazon Web Services Regions in the Amazon Web Services General Reference. In each Region, Amazon Web Services maintains multiple Availability Zones. These Availability Zones are physically isolated from each other, but are united by private, low-latency, high-throughput, and highly redundant network connections. These Availability Zones enable us to provide very high levels of availability and redundancy, while also minimizing latency. To learn more about the number of Availability Zones that are available in each Region, see Amazon Web Services Global Infrastructure",
+    "Welcome to the AWS End User Messaging SMS and Voice, version 2 API Reference. This guide provides information about AWS End User Messaging SMS and Voice, version 2 API resources, including supported HTTP methods, parameters, and schemas. Amazon Pinpoint is an Amazon Web Services service that you can use to engage with your recipients across multiple messaging channels. The AWS End User Messaging SMS and Voice, version 2 API provides programmatic access to options that are unique to the SMS and voice channels. AWS End User Messaging SMS and Voice, version 2 resources such as phone numbers, sender IDs, and opt-out lists can be used by the Amazon Pinpoint API. If you're new to AWS End User Messaging SMS and Voice, it's also helpful to review the  AWS End User Messaging SMS User Guide. The AWS End User Messaging SMS User Guide  provides tutorials, code samples, and procedures that demonstrate how to use AWS End User Messaging SMS and Voice features programmatically and how to integrate functionality into mobile apps and other types of applications. The guide also provides key information, such as AWS End User Messaging SMS and Voice integration with other Amazon Web Services services, and the quotas that apply to use of the service.  Regional availability  The AWS End User Messaging SMS and Voice version 2 API Reference is available in several Amazon Web Services Regions and it provides an endpoint for each of these Regions. For a list of all the Regions and endpoints where the API is currently available, see Amazon Web Services Service Endpoints and Amazon Pinpoint endpoints and quotas in the Amazon Web Services General Reference. To learn more about Amazon Web Services Regions, see Managing Amazon Web Services Regions in the Amazon Web Services General Reference. In each Region, Amazon Web Services maintains multiple Availability Zones. These Availability Zones are physically isolated from each other, but are united by private, low-latency, high-throughput, and highly redundant network connections. These Availability Zones enable us to provide very high levels of availability and redundancy, while also minimizing latency. To learn more about the number of Availability Zones that are available in each Region, see Amazon Web Services Global Infrastructure",
   subcommands: [
     {
       name: "associate-origination-identity",
@@ -11,7 +11,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--pool-id",
           description:
-            "The pool to update with the new Identity. This value can be either the PoolId or PoolArn, and you can find these values using DescribePools",
+            "The pool to update with the new Identity. This value can be either the PoolId or PoolArn, and you can find these values using DescribePools.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -19,7 +19,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--origination-identity",
           description:
-            "The origination identity to use, such as PhoneNumberId, PhoneNumberArn, SenderId, or SenderIdArn. You can use DescribePhoneNumbers to find the values for PhoneNumberId and PhoneNumberArn, while DescribeSenderIds can be used to get the values for SenderId and SenderIdArn",
+            "The origination identity to use, such as PhoneNumberId, PhoneNumberArn, SenderId, or SenderIdArn. You can use DescribePhoneNumbers to find the values for PhoneNumberId and PhoneNumberArn, while DescribeSenderIds can be used to get the values for SenderId and SenderIdArn.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -147,7 +147,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-event-destination",
       description:
-        "Creates a new event destination in a configuration set. An event destination is a location where you send message events. The event options are Amazon CloudWatch, Amazon Kinesis Data Firehose, or Amazon SNS. For example, when a message is delivered successfully, you can send information about that event to an event destination, or send notifications to endpoints that are subscribed to an Amazon SNS topic. Each configuration set can contain between 0 and 5 event destinations. Each event destination can contain a reference to a single destination, such as a CloudWatch or Kinesis Data Firehose destination",
+        "Creates a new event destination in a configuration set. An event destination is a location where you send message events. The event options are Amazon CloudWatch, Amazon Data Firehose, or Amazon SNS. For example, when a message is delivered successfully, you can send information about that event to an event destination, or send notifications to endpoints that are subscribed to an Amazon SNS topic. Each configuration set can contain between 0 and 5 event destinations. Each event destination can contain a reference to a single destination, such as a CloudWatch or Firehose destination",
       options: [
         {
           name: "--configuration-set-name",
@@ -167,7 +167,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--matching-event-types",
           description:
-            'An array of event types that determine which events to log. If "ALL" is used, then Amazon Pinpoint logs every event type.  The TEXT_SENT event type is not supported',
+            'An array of event types that determine which events to log. If "ALL" is used, then AWS End User Messaging SMS and Voice logs every event type.  The TEXT_SENT event type is not supported',
           args: {
             name: "list",
           },
@@ -183,7 +183,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--kinesis-firehose-destination",
           description:
-            "An object that contains information about an event destination for logging to Amazon Kinesis Data Firehose",
+            "An object that contains information about an event destination for logging to Amazon Data Firehose",
           args: {
             name: "structure",
           },
@@ -226,7 +226,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-opt-out-list",
       description:
-        'Creates a new opt-out list. If the opt-out list name already exists, an error is returned. An opt-out list is a list of phone numbers that are opted out, meaning you can\'t send SMS or voice messages to them. If end user replies with the keyword "STOP," an entry for the phone number is added to the opt-out list. In addition to STOP, your recipients can use any supported opt-out keyword, such as CANCEL or OPTOUT. For a list of supported opt-out keywords, see  SMS opt out  in the Amazon Pinpoint User Guide',
+        'Creates a new opt-out list. If the opt-out list name already exists, an error is returned. An opt-out list is a list of phone numbers that are opted out, meaning you can\'t send SMS or voice messages to them. If end user replies with the keyword "STOP," an entry for the phone number is added to the opt-out list. In addition to STOP, your recipients can use any supported opt-out keyword, such as CANCEL or OPTOUT. For a list of supported opt-out keywords, see  SMS opt out  in the AWS End User Messaging SMS User Guide',
       options: [
         {
           name: "--opt-out-list-name",
@@ -278,7 +278,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--origination-identity",
           description:
-            "The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use DescribePhoneNumbers to find the values for PhoneNumberId and PhoneNumberArn while DescribeSenderIds can be used to get the values for SenderId and SenderIdArn",
+            "The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use DescribePhoneNumbers to find the values for PhoneNumberId and PhoneNumberArn while DescribeSenderIds can be used to get the values for SenderId and SenderIdArn. After the pool is created you can add more origination identities to the pool by using AssociateOriginationIdentity.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -294,7 +294,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--message-type",
           description:
-            "The type of message. Valid values are TRANSACTIONAL for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive",
+            "The type of message. Valid values are TRANSACTIONAL for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive. After the pool is created the MessageType can't be changed",
           args: {
             name: "string",
           },
@@ -484,12 +484,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-registration-attachment",
       description:
-        "Create a new registration attachment to use for uploading a file or a URL to a file. The maximum file size is 1MiB and valid file extensions are PDF, JPEG and PNG. For example, many sender ID registrations require a signed \u201cletter of authorization\u201d (LOA) to be submitted",
+        "Create a new registration attachment to use for uploading a file or a URL to a file. The maximum file size is 500KB and valid file extensions are PDF, JPEG and PNG. For example, many sender ID registrations require a signed \u201cletter of authorization\u201d (LOA) to be submitted. Use either AttachmentUrl or AttachmentBody to upload your attachment. If both are specified then an exception is returned",
       options: [
         {
           name: "--attachment-body",
           description:
-            "The registration file to upload. The maximum file size is 1MiB and valid file extensions are PDF, JPEG and PNG",
+            "The registration file to upload. The maximum file size is 500KB and valid file extensions are PDF, JPEG and PNG",
           args: {
             name: "blob",
           },
@@ -497,7 +497,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--attachment-url",
           description:
-            "A URL to the required registration file. For example, you can provide the S3 object URL",
+            "Registration files have to be stored in an Amazon S3 bucket. The URI to use when sending is in the format s3://BucketName/FileName",
           args: {
             name: "string",
           },
@@ -776,12 +776,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-keyword",
       description:
-        'Deletes an existing keyword from an origination phone number or pool. A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, Amazon Pinpoint responds with a customizable message. Keywords "HELP" and "STOP" can\'t be deleted or modified',
+        'Deletes an existing keyword from an origination phone number or pool. A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message. Keywords "HELP" and "STOP" can\'t be deleted or modified',
       options: [
         {
           name: "--origination-identity",
           description:
-            "The origination identity to use such as a PhoneNumberId, PhoneNumberArn, PoolId or PoolArn. You can use DescribePhoneNumbers to find the values for PhoneNumberId and PhoneNumberArn and DescribePools to find the values of PoolId and PoolArn",
+            "The origination identity to use such as a PhoneNumberId, PhoneNumberArn, PoolId or PoolArn. You can use DescribePhoneNumbers to find the values for PhoneNumberId and PhoneNumberArn and DescribePools to find the values of PoolId and PoolArn.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -844,7 +844,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--opt-out-list-name",
           description:
-            "The OptOutListName or OptOutListArn of the OptOutList to delete. You can use DescribeOptOutLists to find the values for OptOutListName and OptOutListArn",
+            "The OptOutListName or OptOutListArn of the OptOutList to delete. You can use DescribeOptOutLists to find the values for OptOutListName and OptOutListArn.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -876,7 +876,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--opt-out-list-name",
           description:
-            "The OptOutListName or OptOutListArn to remove the phone number from",
+            "The OptOutListName or OptOutListArn to remove the phone number from.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -916,7 +916,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--pool-id",
           description:
-            "The PoolId or PoolArn of the pool to delete. You can use DescribePools to find the values for PoolId and PoolArn",
+            "The PoolId or PoolArn of the pool to delete. You can use DescribePools to find the values for PoolId and PoolArn .  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -948,6 +948,44 @@ const completionSpec: Fig.Spec = {
         {
           name: "--protect-configuration-id",
           description: "The unique identifier for the protect configuration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-protect-configuration-rule-set-number-override",
+      description:
+        "Permanently delete the protect configuration rule set number override",
+      options: [
+        {
+          name: "--protect-configuration-id",
+          description: "The unique identifier for the protect configuration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--destination-phone-number",
+          description: "The destination phone number in E.164 format",
           args: {
             name: "string",
           },
@@ -1071,9 +1109,41 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "delete-resource-policy",
+      description:
+        "Deletes the resource-based policy document attached to the AWS End User Messaging SMS and Voice resource. A shared resource can be a Pool, Opt-out list, Sender Id, or Phone number",
+      options: [
+        {
+          name: "--resource-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the AWS End User Messaging SMS and Voice resource you're deleting the resource-based policy from",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "delete-text-message-spend-limit-override",
       description:
-        "Deletes an account-level monthly spending limit override for sending text messages. Deleting a spend limit override will set the EnforcedLimit to equal the MaxLimit, which is controlled by Amazon Web Services. For more information on spend limits (quotas) see Amazon Pinpoint quotas  in the Amazon Pinpoint Developer Guide",
+        "Deletes an account-level monthly spending limit override for sending text messages. Deleting a spend limit override will set the EnforcedLimit to equal the MaxLimit, which is controlled by Amazon Web Services. For more information on spend limits (quotas) see Quotas  in the AWS End User Messaging SMS User Guide",
       options: [
         {
           name: "--cli-input-json",
@@ -1128,7 +1198,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-voice-message-spend-limit-override",
       description:
-        "Deletes an account level monthly spend limit override for sending voice messages. Deleting a spend limit override sets the EnforcedLimit equal to the MaxLimit, which is controlled by Amazon Web Services. For more information on spending limits (quotas) see Amazon Pinpoint quotas in the Amazon Pinpoint Developer Guide",
+        "Deletes an account level monthly spend limit override for sending voice messages. Deleting a spend limit override sets the EnforcedLimit equal to the MaxLimit, which is controlled by Amazon Web Services. For more information on spending limits (quotas) see Quotas  in the AWS End User Messaging SMS User Guide",
       options: [
         {
           name: "--cli-input-json",
@@ -1152,7 +1222,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-account-attributes",
       description:
-        "Describes attributes of your Amazon Web Services account. The supported account attributes include account tier, which indicates whether your account is in the sandbox or production environment. When you're ready to move your account out of the sandbox, create an Amazon Web Services Support case for a service limit increase request. New Amazon Pinpoint accounts are placed into an SMS or voice sandbox. The sandbox protects both Amazon Web Services end recipients and SMS or voice recipients from fraud and abuse",
+        "Describes attributes of your Amazon Web Services account. The supported account attributes include account tier, which indicates whether your account is in the sandbox or production environment. When you're ready to move your account out of the sandbox, create an Amazon Web Services Support case for a service limit increase request. New accounts are placed into an SMS or voice sandbox. The sandbox protects both Amazon Web Services end recipients and SMS or voice recipients from fraud and abuse",
       options: [
         {
           name: "--next-token",
@@ -1216,7 +1286,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-account-limits",
       description:
-        "Describes the current Amazon Pinpoint SMS Voice V2 resource quotas for your account. The description for a quota includes the quota name, current usage toward that quota, and the quota's maximum value. When you establish an Amazon Web Services account, the account has initial quotas on the maximum number of configuration sets, opt-out lists, phone numbers, and pools that you can create in a given Region. For more information see  Amazon Pinpoint quotas  in the Amazon Pinpoint Developer Guide",
+        "Describes the current AWS End User Messaging SMS and Voice SMS Voice V2 resource quotas for your account. The description for a quota includes the quota name, current usage toward that quota, and the quota's maximum value. When you establish an Amazon Web Services account, the account has initial quotas on the maximum number of configuration sets, opt-out lists, phone numbers, and pools that you can create in a given Region. For more information see Quotas  in the AWS End User Messaging SMS User Guide",
       options: [
         {
           name: "--next-token",
@@ -1360,12 +1430,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-keywords",
       description:
-        "Describes the specified keywords or all keywords on your origination phone number or pool. A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, Amazon Pinpoint responds with a customizable message. If you specify a keyword that isn't valid, an error is returned",
+        "Describes the specified keywords or all keywords on your origination phone number or pool. A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message. If you specify a keyword that isn't valid, an error is returned",
       options: [
         {
           name: "--origination-identity",
           description:
-            "The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use DescribePhoneNumbers to find the values for PhoneNumberId and PhoneNumberArn while DescribeSenderIds can be used to get the values for SenderId and SenderIdArn",
+            "The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use DescribePhoneNumbers to find the values for PhoneNumberId and PhoneNumberArn while DescribeSenderIds can be used to get the values for SenderId and SenderIdArn.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -1451,7 +1521,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--opt-out-list-names",
           description:
-            "The OptOutLists to show the details of. This is an array of strings that can be either the OptOutListName or OptOutListArn",
+            "The OptOutLists to show the details of. This is an array of strings that can be either the OptOutListName or OptOutListArn.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "list",
           },
@@ -1470,6 +1540,14 @@ const completionSpec: Fig.Spec = {
             "The maximum number of results to return per each request",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--owner",
+          description:
+            "Use SELF to filter the list of Opt-Out List to ones your account owns or use SHARED to filter on Opt-Out List shared with your account. The Owner and OptOutListNames parameters can't be used at the same time",
+          args: {
+            name: "string",
           },
         },
         {
@@ -1518,12 +1596,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-opted-out-numbers",
       description:
-        "Describes the specified opted out destination numbers or all opted out destination numbers in an opt-out list. If you specify opted out numbers, the output includes information for only the specified opted out numbers. If you specify filters, the output includes information for only those opted out numbers that meet the filter criteria. If you don't specify opted out numbers or filters, the output includes information for all opted out destination numbers in your opt-out list. If you specify an opted out number that isn't valid, an error is returned",
+        "Describes the specified opted out destination numbers or all opted out destination numbers in an opt-out list. If you specify opted out numbers, the output includes information for only the specified opted out numbers. If you specify filters, the output includes information for only those opted out numbers that meet the filter criteria. If you don't specify opted out numbers or filters, the output includes information for all opted out destination numbers in your opt-out list. If you specify an opted out number that isn't valid, an exception is returned",
       options: [
         {
           name: "--opt-out-list-name",
           description:
-            "The OptOutListName or OptOutListArn of the OptOutList. You can use DescribeOptOutLists to find the values for OptOutListName and OptOutListArn",
+            "The OptOutListName or OptOutListArn of the OptOutList. You can use DescribeOptOutLists to find the values for OptOutListName and OptOutListArn.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -1531,7 +1609,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--opted-out-numbers",
           description:
-            "An array of phone numbers to search for in the OptOutList",
+            "An array of phone numbers to search for in the OptOutList. If you specify an opted out number that isn't valid, an exception is returned",
           args: {
             name: "list",
           },
@@ -1611,7 +1689,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--phone-number-ids",
           description:
-            "The unique identifier of phone numbers to find information about. This is an array of strings that can be either the PhoneNumberId or PhoneNumberArn",
+            "The unique identifier of phone numbers to find information about. This is an array of strings that can be either the PhoneNumberId or PhoneNumberArn.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "list",
           },
@@ -1638,6 +1716,14 @@ const completionSpec: Fig.Spec = {
             "The maximum number of results to return per each request",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--owner",
+          description:
+            "Use SELF to filter the list of phone numbers to ones your account owns or use SHARED to filter on phone numbers shared with your account. The Owner and PhoneNumberIds parameters can't be used at the same time",
+          args: {
+            name: "string",
           },
         },
         {
@@ -1691,7 +1777,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--pool-ids",
           description:
-            "The unique identifier of pools to find. This is an array of strings that can be either the PoolId or PoolArn",
+            "The unique identifier of pools to find. This is an array of strings that can be either the PoolId or PoolArn.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "list",
           },
@@ -1717,6 +1803,14 @@ const completionSpec: Fig.Spec = {
             "The maximum number of results to return per each request",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--owner",
+          description:
+            "Use SELF to filter the list of Pools to ones your account owns or use SHARED to filter on Pools shared with your account. The Owner and PoolIds parameters can't be used at the same time",
+          args: {
+            name: "string",
           },
         },
         {
@@ -2428,7 +2522,8 @@ const completionSpec: Fig.Spec = {
       options: [
         {
           name: "--sender-ids",
-          description: "An array of SenderIdAndCountry objects to search for",
+          description:
+            "An array of SenderIdAndCountry objects to search for.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "list",
           },
@@ -2455,6 +2550,14 @@ const completionSpec: Fig.Spec = {
             "The maximum number of results to return per each request",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--owner",
+          description:
+            "Use SELF to filter the list of Sender Ids to ones your account owns or use SHARED to filter on Sender Ids shared with your account. The Owner and SenderIds parameters can't be used at the same time",
+          args: {
+            name: "string",
           },
         },
         {
@@ -2503,7 +2606,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-spend-limits",
       description:
-        "Describes the current Amazon Pinpoint monthly spend limits for sending voice and text messages. When you establish an Amazon Web Services account, the account has initial monthly spend limit in a given Region. For more information on increasing your monthly spend limit, see  Requesting increases to your monthly SMS spending quota for Amazon Pinpoint  in the Amazon Pinpoint User Guide",
+        "Describes the current monthly spend limits for sending voice and text messages. When you establish an Amazon Web Services account, the account has initial monthly spend limit in a given Region. For more information on increasing your monthly spend limit, see  Requesting increases to your monthly SMS, MMS, or Voice spending quota  in the AWS End User Messaging SMS User Guide",
       options: [
         {
           name: "--next-token",
@@ -2566,11 +2669,11 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "describe-verified-destination-numbers",
-      description: "Retrieves the specified verified destiona numbers",
+      description: "Retrieves the specified verified destination numbers",
       options: [
         {
           name: "--verified-destination-number-ids",
-          description: "An array of VerifiedDestinationNumberid to retreive",
+          description: "An array of VerifiedDestinationNumberid to retrieve",
           args: {
             name: "list",
           },
@@ -2658,7 +2761,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--pool-id",
           description:
-            "The unique identifier for the pool to disassociate with the origination identity. This value can be either the PoolId or PoolArn",
+            "The unique identifier for the pool to disassociate with the origination identity. This value can be either the PoolId or PoolArn.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -2666,7 +2769,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--origination-identity",
           description:
-            "The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use DescribePhoneNumbers find the values for PhoneNumberId and PhoneNumberArn, or use DescribeSenderIds to get the values for SenderId and SenderIdArn",
+            "The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use DescribePhoneNumbers find the values for PhoneNumberId and PhoneNumberArn, or use DescribeSenderIds to get the values for SenderId and SenderIdArn.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -2814,6 +2917,38 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-resource-policy",
+      description:
+        "Retrieves the JSON text of the resource-based policy document attached to the AWS End User Messaging SMS and Voice resource. A shared resource can be a Pool, Opt-out list, Sender Id, or Phone number",
+      options: [
+        {
+          name: "--resource-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the AWS End User Messaging SMS and Voice resource attached to the resource-based policy",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "list-pool-origination-identities",
       description:
         "Lists all associated origination identities in your pool. If you specify filters, the output includes information for only those origination identities that meet the filter criteria",
@@ -2821,7 +2956,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--pool-id",
           description:
-            "The unique identifier for the pool. This value can be either the PoolId or PoolArn",
+            "The unique identifier for the pool. This value can be either the PoolId or PoolArn.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -2894,9 +3029,88 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "list-protect-configuration-rule-set-number-overrides",
+      description:
+        "Retrieve all of the protect configuration rule set number overrides that match the filters",
+      options: [
+        {
+          name: "--protect-configuration-id",
+          description: "The unique identifier for the protect configuration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--filters",
+          description:
+            "An array of ProtectConfigurationRuleSetNumberOverrideFilterItem objects to filter the results",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of results to return per each request",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "list-registration-associations",
       description:
-        "Retreive all of the origination identies that are associated with a registration",
+        "Retrieve all of the origination identities that are associated with a registration",
       options: [
         {
           name: "--registration-id",
@@ -3006,12 +3220,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-keyword",
       description:
-        "Creates or updates a keyword configuration on an origination phone number or pool.  A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, Amazon Pinpoint responds with a customizable message. If you specify a keyword that isn't valid, an error is returned",
+        "Creates or updates a keyword configuration on an origination phone number or pool.  A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message. If you specify a keyword that isn't valid, an error is returned",
       options: [
         {
           name: "--origination-identity",
           description:
-            "The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use DescribePhoneNumbers get the values for PhoneNumberId and PhoneNumberArn while DescribeSenderIds can be used to get the values for SenderId and SenderIdArn",
+            "The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use DescribePhoneNumbers get the values for PhoneNumberId and PhoneNumberArn while DescribeSenderIds can be used to get the values for SenderId and SenderIdArn.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -3058,6 +3272,45 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "put-message-feedback",
+      description:
+        "Set the MessageFeedbackStatus as RECEIVED or FAILED for the passed in MessageId.  If you use message feedback then you must update message feedback record. When you receive a signal that a user has received the message you must use PutMessageFeedback to set the message feedback record as RECEIVED; Otherwise, an hour after the message feedback record is set to FAILED",
+      options: [
+        {
+          name: "--message-id",
+          description: "The unique identifier for the message",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--message-feedback-status",
+          description:
+            "Set the message feedback to be either RECEIVED or FAILED",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "put-opted-out-number",
       description:
         "Creates an opted out destination phone number in the opt-out list. If the destination phone number isn't valid or if the specified opt-out list doesn't exist, an error is returned",
@@ -3065,7 +3318,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--opt-out-list-name",
           description:
-            "The OptOutListName or OptOutListArn to add the phone number to",
+            "The OptOutListName or OptOutListArn to add the phone number to.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -3076,6 +3329,68 @@ const completionSpec: Fig.Spec = {
             "The phone number to add to the OptOutList in E.164 format",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "put-protect-configuration-rule-set-number-override",
+      description:
+        "Create or update a RuleSetNumberOverride and associate it with a protect configuration",
+      options: [
+        {
+          name: "--client-token",
+          description:
+            "Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--protect-configuration-id",
+          description: "The unique identifier for the protect configuration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--destination-phone-number",
+          description: "The destination phone number in E.164 format",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--action",
+          description:
+            "The action for the rule to either block or allow messages to the destination phone number",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--expiration-timestamp",
+          description:
+            "The time the rule will expire at. If ExpirationTimestamp is not set then the rule does not expire",
+          args: {
+            name: "timestamp",
           },
         },
         {
@@ -3157,6 +3472,45 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "put-resource-policy",
+      description:
+        "Attaches a resource-based policy to a AWS End User Messaging SMS and Voice resource(phone number, sender Id, phone poll, or opt-out list) that is used for sharing the resource. A shared resource can be a Pool, Opt-out list, Sender Id, or Phone number. For more information about resource-based policies, see Working with shared resources in the AWS End User Messaging SMS User Guide",
+      options: [
+        {
+          name: "--resource-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the AWS End User Messaging SMS and Voice resource to attach the resource-based policy to",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--policy",
+          description: "The JSON formatted resource-based policy to attach",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "release-phone-number",
       description:
         "Releases an existing origination phone number in your account. Once released, a phone number is no longer available for sending messages. If the origination phone number has deletion protection enabled or is associated with a pool, an error is returned",
@@ -3164,7 +3518,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--phone-number-id",
           description:
-            "The PhoneNumberId or PhoneNumberArn of the phone number to release. You can use DescribePhoneNumbers to get the values for PhoneNumberId and PhoneNumberArn",
+            "The PhoneNumberId or PhoneNumberArn of the phone number to release. You can use DescribePhoneNumbers to get the values for PhoneNumberId and PhoneNumberArn.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -3229,7 +3583,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "request-phone-number",
       description:
-        "Request an origination phone number for use in your account. For more information on phone number request see  Requesting a number  in the Amazon Pinpoint User Guide",
+        "Request an origination phone number for use in your account. For more information on phone number request see Request a phone number in the AWS End User Messaging SMS User Guide",
       options: [
         {
           name: "--iso-country-code",
@@ -3265,7 +3619,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--opt-out-list-name",
           description:
-            "The name of the OptOutList to associate with the phone number. You can use the OptOutListName or OptOutListArn",
+            "The name of the OptOutList to associate with the phone number. You can use the OptOutListName or OptOutListArn.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -3273,7 +3627,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--pool-id",
           description:
-            "The pool to associated with the phone number. You can use the PoolId or PoolArn",
+            "The pool to associated with the phone number. You can use the PoolId or PoolArn.   If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -3434,7 +3788,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--origination-identity",
           description:
-            "The origination identity of the message. This can be either the PhoneNumber, PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn",
+            "The origination identity of the message. This can be either the PhoneNumber, PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -3497,7 +3851,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--origination-identity",
           description:
-            "The origination identity of the message. This can be either the PhoneNumber, PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn",
+            "The origination identity of the message. This can be either the PhoneNumber, PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -3536,7 +3890,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--time-to-live",
           description:
-            "How long the text message is valid for. By default this is 72 hours",
+            "How long the media message is valid for. By default this is 72 hours",
           args: {
             name: "integer",
           },
@@ -3568,6 +3922,16 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--message-feedback-enabled",
+          description:
+            "Set to true to enable message feedback for the message. When a user receives the message you need to update the message status using PutMessageFeedback",
+        },
+        {
+          name: "--no-message-feedback-enabled",
+          description:
+            "Set to true to enable message feedback for the message. When a user receives the message you need to update the message status using PutMessageFeedback",
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3589,7 +3953,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "send-text-message",
       description:
-        "Creates a new text message and sends it to a recipient's phone number. SMS throughput limits are measured in Message Parts per Second (MPS). Your MPS limit depends on the destination country of your messages, as well as the type of phone number (origination number) that you use to send the message. For more information, see Message Parts per Second (MPS) limits in the Amazon Pinpoint User Guide",
+        "Creates a new text message and sends it to a recipient's phone number. SendTextMessage only sends an SMS message to one recipient each time it is invoked. SMS throughput limits are measured in Message Parts per Second (MPS). Your MPS limit depends on the destination country of your messages, as well as the type of phone number (origination number) that you use to send the message. For more information about MPS, see Message Parts per Second (MPS) limits in the AWS End User Messaging SMS User Guide",
       options: [
         {
           name: "--destination-phone-number",
@@ -3601,7 +3965,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--origination-identity",
           description:
-            "The origination identity of the message. This can be either the PhoneNumber, PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn",
+            "The origination identity of the message. This can be either the PhoneNumber, PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -3640,7 +4004,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--max-price",
           description:
-            "The maximum amount that you want to spend, in US dollars, per each text message part. A text message can contain multiple parts",
+            "The maximum amount that you want to spend, in US dollars, per each text message. If the calculated amount to send the text message is greater than MaxPrice, the message is not sent and an error is returned",
           args: {
             name: "string",
           },
@@ -3648,7 +4012,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--time-to-live",
           description:
-            "How long the text message is valid for. By default this is 72 hours",
+            "How long the text message is valid for, in seconds. By default this is 72 hours. If the messages isn't handed off before the TTL expires we stop attempting to hand off the message and return TTL_EXPIRED event",
           args: {
             name: "integer",
           },
@@ -3664,7 +4028,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--destination-country-parameters",
           description:
-            "This field is used for any country-specific registration requirements. Currently, this setting is only used when you send messages to recipients in India using a sender ID. For more information see Special requirements for sending SMS messages to recipients in India",
+            "This field is used for any country-specific registration requirements. Currently, this setting is only used when you send messages to recipients in India using a sender ID. For more information see Special requirements for sending SMS messages to recipients in India.     IN_ENTITY_ID The entity ID or Principal Entity (PE) ID that you received after completing the sender ID registration process.    IN_TEMPLATE_ID The template ID that you received after completing the sender ID registration process.  Make sure that the Template ID that you specify matches your message template exactly. If your message doesn't match the template that you provided during the registration process, the mobile carriers might reject your message",
           args: {
             name: "map",
           },
@@ -3672,12 +4036,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--dry-run",
           description:
-            "When set to true, the message is checked and validated, but isn't sent to the end recipient",
+            "When set to true, the message is checked and validated, but isn't sent to the end recipient. You are not charged for using DryRun. The Message Parts per Second (MPS) limit when using DryRun is five. If your origination identity has a lower MPS limit then the lower MPS limit is used. For more information about MPS limits, see Message Parts per Second (MPS) limits in the AWS End User Messaging SMS User Guide",
         },
         {
           name: "--no-dry-run",
           description:
-            "When set to true, the message is checked and validated, but isn't sent to the end recipient",
+            "When set to true, the message is checked and validated, but isn't sent to the end recipient. You are not charged for using DryRun. The Message Parts per Second (MPS) limit when using DryRun is five. If your origination identity has a lower MPS limit then the lower MPS limit is used. For more information about MPS limits, see Message Parts per Second (MPS) limits in the AWS End User Messaging SMS User Guide",
         },
         {
           name: "--protect-configuration-id",
@@ -3685,6 +4049,16 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "string",
           },
+        },
+        {
+          name: "--message-feedback-enabled",
+          description:
+            "Set to true to enable message feedback for the message. When a user receives the message you need to update the message status using PutMessageFeedback",
+        },
+        {
+          name: "--no-message-feedback-enabled",
+          description:
+            "Set to true to enable message feedback for the message. When a user receives the message you need to update the message status using PutMessageFeedback",
         },
         {
           name: "--cli-input-json",
@@ -3708,7 +4082,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "send-voice-message",
       description:
-        "Allows you to send a request that sends a voice message through Amazon Pinpoint. This operation uses Amazon Polly to convert a text script into a voice message",
+        "Allows you to send a request that sends a voice message. This operation uses Amazon Polly to convert a text script into a voice message",
       options: [
         {
           name: "--destination-phone-number",
@@ -3720,7 +4094,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--origination-identity",
           description:
-            "The origination identity to use for the voice call. This can be the PhoneNumber, PhoneNumberId, PhoneNumberArn, PoolId, or PoolArn",
+            "The origination identity to use for the voice call. This can be the PhoneNumber, PhoneNumberId, PhoneNumberArn, PoolId, or PoolArn.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -3798,6 +4172,16 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--message-feedback-enabled",
+          description:
+            "Set to true to enable message feedback for the message. When a user receives the message you need to update the message status using PutMessageFeedback",
+        },
+        {
+          name: "--no-message-feedback-enabled",
+          description:
+            "Set to true to enable message feedback for the message. When a user receives the message you need to update the message status using PutMessageFeedback",
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3827,6 +4211,45 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "string",
           },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "set-default-message-feedback-enabled",
+      description: "Sets a configuration set's default for message feedback",
+      options: [
+        {
+          name: "--configuration-set-name",
+          description:
+            "The name of the configuration set to use. This can be either the ConfigurationSetName or ConfigurationSetArn",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--message-feedback-enabled",
+          description: "Set to true to enable message feedback",
+        },
+        {
+          name: "--no-message-feedback-enabled",
+          description: "Set to true to enable message feedback",
         },
         {
           name: "--cli-input-json",
@@ -4053,7 +4476,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "tag-resource",
       description:
-        "Adds or overwrites only the specified tags for the specified Amazon Pinpoint SMS Voice, version 2 resource. When you specify an existing tag key, the value is overwritten with the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and an optional value. Tag keys must be unique per resource. For more information about tags, see  Tagging Amazon Pinpoint resources in the Amazon Pinpoint Developer Guide",
+        "Adds or overwrites only the specified tags for the specified resource. When you specify an existing tag key, the value is overwritten with the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and an optional value. Tag keys must be unique per resource. For more information about tags, see Tags  in the AWS End User Messaging SMS User Guide",
       options: [
         {
           name: "--resource-arn",
@@ -4092,7 +4515,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "untag-resource",
       description:
-        "Removes the association of the specified tags from an Amazon Pinpoint SMS Voice V2 resource. For more information on tags see  Tagging Amazon Pinpoint resources in the Amazon Pinpoint Developer Guide",
+        "Removes the association of the specified tags from a resource. For more information on tags see Tags  in the AWS End User Messaging SMS User Guide",
       options: [
         {
           name: "--resource-arn",
@@ -4131,7 +4554,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-event-destination",
       description:
-        "Updates an existing event destination in a configuration set. You can update the IAM role ARN for CloudWatch Logs and Kinesis Data Firehose. You can also enable or disable the event destination. You may want to update an event destination to change its matching event types or updating the destination resource ARN. You can't change an event destination's type between CloudWatch Logs, Kinesis Data Firehose, and Amazon SNS",
+        "Updates an existing event destination in a configuration set. You can update the IAM role ARN for CloudWatch Logs and Firehose. You can also enable or disable the event destination. You may want to update an event destination to change its matching event types or updating the destination resource ARN. You can't change an event destination's type between CloudWatch Logs, Firehose, and Amazon SNS",
       options: [
         {
           name: "--configuration-set-name",
@@ -4175,7 +4598,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--kinesis-firehose-destination",
           description:
-            "An object that contains information about an event destination for logging to Kinesis Data Firehose",
+            "An object that contains information about an event destination for logging to Firehose",
           args: {
             name: "structure",
           },
@@ -4215,7 +4638,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--phone-number-id",
           description:
-            "The unique identifier of the phone number. Valid values for this field can be either the PhoneNumberId or PhoneNumberArn",
+            "The unique identifier of the phone number. Valid values for this field can be either the PhoneNumberId or PhoneNumberArn.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -4248,12 +4671,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--self-managed-opt-outs-enabled",
           description:
-            "By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, Amazon Pinpoint automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests",
+            "By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests",
         },
         {
           name: "--no-self-managed-opt-outs-enabled",
           description:
-            "By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, Amazon Pinpoint automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests",
+            "By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests",
         },
         {
           name: "--opt-out-list-name",
@@ -4300,7 +4723,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--pool-id",
           description:
-            "The unique identifier of the pool to update. Valid values are either the PoolId or PoolArn",
+            "The unique identifier of the pool to update. Valid values are either the PoolId or PoolArn.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -4333,17 +4756,17 @@ const completionSpec: Fig.Spec = {
         {
           name: "--self-managed-opt-outs-enabled",
           description:
-            "By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, Amazon Pinpoint automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests",
+            "By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests",
         },
         {
           name: "--no-self-managed-opt-outs-enabled",
           description:
-            "By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, Amazon Pinpoint automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests",
+            "By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests",
         },
         {
           name: "--opt-out-list-name",
           description:
-            "The OptOutList to associate with the pool. Valid values are either OptOutListName or OptOutListArn",
+            "The OptOutList to associate with the pool. Valid values are either OptOutListName or OptOutListArn.  If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN)",
           args: {
             name: "string",
           },
@@ -4448,7 +4871,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--country-rule-set-updates",
           description:
-            "A map of ProtectConfigurationCountryRuleSetInformation objects that contain the details for the requested NumberCapability. The Key is the two-letter ISO country code. For a list of supported ISO country codes, see Supported countries and regions (SMS channel) in the Amazon Pinpoint SMS user guide",
+            "A map of ProtectConfigurationCountryRuleSetInformation objects that contain the details for the requested NumberCapability. The Key is the two-letter ISO country code. For a list of supported ISO country codes, see Supported countries and regions (SMS channel) in the AWS End User Messaging SMS User Guide",
           args: {
             name: "map",
           },

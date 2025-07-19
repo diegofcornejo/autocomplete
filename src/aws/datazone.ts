@@ -77,6 +77,13 @@ const completionSpec: Fig.Spec = {
       description: "Accepts a subscription request to a specific asset",
       options: [
         {
+          name: "--asset-scopes",
+          description: "The asset scopes of the accept subscription request",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--decision-comment",
           description:
             "A description that specifies the reason for accepting the specified subscription request",
@@ -98,6 +105,143 @@ const completionSpec: Fig.Spec = {
             "The unique identifier of the subscription request that is to be accepted",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "add-entity-owner",
+      description: "Adds the owner of an entity (a domain unit)",
+      options: [
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that is provided to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain in which you want to add the entity owner",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--entity-identifier",
+          description: "The ID of the entity to which you want to add an owner",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--entity-type",
+          description: "The type of an entity",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--owner",
+          description: "The owner that you want to add to the entity",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "add-policy-grant",
+      description:
+        "Adds a policy grant (an authorization policy) to a specified entity, including domain units, environment blueprint configurations, or environment profiles",
+      options: [
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that is provided to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--detail",
+          description: "The details of the policy grant",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain where you want to add a policy grant",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--entity-identifier",
+          description:
+            "The ID of the entity (resource) to which you want to add a policy grant",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--entity-type",
+          description:
+            "The type of entity (resource) to which the grant is added",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--policy-type",
+          description: "The type of policy that you want to grant",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--principal",
+          description: "The principal to whom the permissions are granted",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -345,6 +489,73 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "create-asset-filter",
+      description: "Creates a data asset filter",
+      options: [
+        {
+          name: "--asset-identifier",
+          description: "The ID of the data asset",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that is provided to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--configuration",
+          description: "The configuration of the asset filter",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--description",
+          description: "The description of the asset filter",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain in which you want to create an asset filter",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of the asset filter",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "create-asset-revision",
       description: "Creates a revision of the asset",
       options: [
@@ -497,6 +708,242 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "create-connection",
+      description:
+        "Creates a new connection. In Amazon DataZone, a connection enables you to connect your resources (domains, projects, and environments) to external resources and services",
+      options: [
+        {
+          name: "--aws-location",
+          description: "The location where the connection is created",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that is provided to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "A connection description",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--domain-identifier",
+          description: "The ID of the domain where the connection is created",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--environment-identifier",
+          description:
+            "The ID of the environment where the connection is created",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The connection name",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--props",
+          description: "The connection props",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-data-product",
+      description: "Creates a data product",
+      options: [
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that is provided to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The description of the data product",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--domain-identifier",
+          description: "The ID of the domain where the data product is created",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--forms-input",
+          description: "The metadata forms of the data product",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--glossary-terms",
+          description: "The glossary terms of the data product",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--items",
+          description: "The data assets of the data product",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of the data product",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--owning-project-identifier",
+          description: "The ID of the owning project of the data product",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-data-product-revision",
+      description: "Creates a data product revision",
+      options: [
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that is provided to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The description of the data product revision",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain where the data product revision is created",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--forms-input",
+          description: "The metadata forms of the data product revision",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--glossary-terms",
+          description: "The glossary terms of the data product revision",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--identifier",
+          description: "The ID of the data product revision",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--items",
+          description: "The data assets of the data product revision",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of the data product revision",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "create-data-source",
       description: "Creates an Amazon DataZone data source",
       options: [
@@ -522,6 +969,13 @@ const completionSpec: Fig.Spec = {
             "Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--connection-identifier",
+          description: "The ID of the connection",
+          args: {
+            name: "string",
           },
         },
         {
@@ -648,6 +1102,13 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--domain-version",
+          description: "The version of the domain that is created",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--kms-key-identifier",
           description:
             "The identifier of the Amazon Web Services Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data",
@@ -658,6 +1119,13 @@ const completionSpec: Fig.Spec = {
         {
           name: "--name",
           description: "The name of the Amazon DataZone domain",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--service-role",
+          description: "The service role of the domain that is created",
           args: {
             name: "string",
           },
@@ -697,9 +1165,76 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "create-domain-unit",
+      description: "Creates a domain unit in Amazon DataZone",
+      options: [
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that is provided to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The description of the domain unit",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain where you want to crate a domain unit",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of the domain unit",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--parent-domain-unit-identifier",
+          description: "The ID of the parent domain unit",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "create-environment",
       description: "Create an Amazon DataZone environment",
       options: [
+        {
+          name: "--deployment-order",
+          description: "The deployment order of the environment",
+          args: {
+            name: "integer",
+          },
+        },
         {
           name: "--description",
           description: "The description of the Amazon DataZone environment",
@@ -735,6 +1270,13 @@ const completionSpec: Fig.Spec = {
           name: "--environment-blueprint-identifier",
           description:
             "The ID of the blueprint with which the environment is being created",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--environment-configuration-id",
+          description: "The configuration ID of the environment",
           args: {
             name: "string",
           },
@@ -1297,6 +1839,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--domain-unit-id",
+          description:
+            "The ID of the domain unit. This parameter is not required and if it is not specified, then the project is created at the root domain unit level",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--glossary-terms",
           description:
             "The glossary terms that can be used in this Amazon DataZone project",
@@ -1309,6 +1859,20 @@ const completionSpec: Fig.Spec = {
           description: "The name of the Amazon DataZone project",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--project-profile-id",
+          description: "The ID of the project profile",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--user-parameters",
+          description: "The user parameters of the project",
+          args: {
+            name: "list",
           },
         },
         {
@@ -1363,6 +1927,152 @@ const completionSpec: Fig.Spec = {
             "The ID of the project for which this project membership was created",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-project-profile",
+      description: "Creates a project profile",
+      options: [
+        {
+          name: "--description",
+          description: "A description of a project profile",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--domain-identifier",
+          description: "A domain ID of the project profile",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--domain-unit-identifier",
+          description: "A domain unit ID of the project profile",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--environment-configurations",
+          description: "Environment configurations of the project profile",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--name",
+          description: "Project profile name",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--status",
+          description: "Project profile status",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-rule",
+      description:
+        "Creates a rule in Amazon DataZone. A rule is a formal agreement that enforces specific requirements across user workflows (e.g., publishing assets to the catalog, requesting subscriptions, creating projects) within the Amazon DataZone data portal. These rules help maintain consistency, ensure compliance, and uphold governance standards in data management processes. For instance, a metadata enforcement rule can specify the required information for creating a subscription request or publishing a data asset to the catalog, ensuring alignment with organizational standards",
+      options: [
+        {
+          name: "--action",
+          description: "The action of the rule",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that is provided to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The description of the rule",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--detail",
+          description: "The detail of the rule",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--domain-identifier",
+          description: "The ID of the domain where the rule is created",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of the rule",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--scope",
+          description: "The scope of the rule",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--target",
+          description: "The target of the rule",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -1472,6 +2182,13 @@ const completionSpec: Fig.Spec = {
             "The ID of the Amazon DataZone domain in which the subscription request is created",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--metadata-forms",
+          description: "The metadata form included in the subscription request",
+          args: {
+            name: "list",
           },
         },
         {
@@ -1671,7 +2388,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "delete-asset",
-      description: "Delets an asset in Amazon DataZone",
+      description: "Deletes an asset in Amazon DataZone",
       options: [
         {
           name: "--domain-identifier",
@@ -1684,6 +2401,51 @@ const completionSpec: Fig.Spec = {
         {
           name: "--identifier",
           description: "The identifier of the asset that is deleted",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-asset-filter",
+      description: "Deletes an asset filter",
+      options: [
+        {
+          name: "--asset-identifier",
+          description: "The ID of the data asset",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain where you want to delete an asset filter",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identifier",
+          description: "The ID of the asset filter that you want to delete",
           args: {
             name: "string",
           },
@@ -1722,6 +2484,82 @@ const completionSpec: Fig.Spec = {
         {
           name: "--identifier",
           description: "The identifier of the asset type that is deleted",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-connection",
+      description:
+        "Deletes and connection. In Amazon DataZone, a connection enables you to connect your resources (domains, projects, and environments) to external resources and services",
+      options: [
+        {
+          name: "--domain-identifier",
+          description: "The ID of the domain where the connection is deleted",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identifier",
+          description: "The ID of the connection that is deleted",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-data-product",
+      description: "Deletes a data product in Amazon DataZone",
+      options: [
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the Amazon DataZone domain in which the data product is deleted",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identifier",
+          description: "The identifier of the data product that is deleted",
           args: {
             name: "string",
           },
@@ -1830,6 +2668,44 @@ const completionSpec: Fig.Spec = {
           name: "--no-skip-deletion-check",
           description:
             "Specifies the optional flag to delete all child entities within the domain",
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-domain-unit",
+      description: "Deletes a domain unit",
+      options: [
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain where you want to delete a domain unit",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identifier",
+          description: "The ID of the domain unit that you want to delete",
+          args: {
+            name: "string",
+          },
         },
         {
           name: "--cli-input-json",
@@ -2259,6 +3135,83 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "delete-project-profile",
+      description: "Deletes a project profile",
+      options: [
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain where a project profile is deleted",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identifier",
+          description: "The ID of the project profile that is deleted",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-rule",
+      description:
+        "Deletes a rule in Amazon DataZone. A rule is a formal agreement that enforces specific requirements across user workflows (e.g., publishing assets to the catalog, requesting subscriptions, creating projects) within the Amazon DataZone data portal. These rules help maintain consistency, ensure compliance, and uphold governance standards in data management processes. For instance, a metadata enforcement rule can specify the required information for creating a subscription request or publishing a data asset to the catalog, ensuring alignment with organizational standards",
+      options: [
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain that where the rule is to be deleted",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identifier",
+          description: "The ID of the rule that is to be deleted",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "delete-subscription-grant",
       description: "Deletes and subscription grant in Amazon DataZone",
       options: [
@@ -2535,6 +3488,51 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-asset-filter",
+      description: "Gets an asset filter",
+      options: [
+        {
+          name: "--asset-identifier",
+          description: "The ID of the data asset",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain where you want to get an asset filter",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identifier",
+          description: "The ID of the asset filter",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "get-asset-type",
       description: "Gets an Amazon DataZone asset type",
       options: [
@@ -2556,6 +3554,96 @@ const completionSpec: Fig.Spec = {
         {
           name: "--revision",
           description: "The revision of the asset type",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-connection",
+      description:
+        "Gets a connection. In Amazon DataZone, a connection enables you to connect your resources (domains, projects, and environments) to external resources and services",
+      options: [
+        {
+          name: "--domain-identifier",
+          description: "The ID of the domain where we get the connection",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identifier",
+          description: "The connection ID",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--with-secret",
+          description: "Specifies whether a connection has a secret",
+        },
+        {
+          name: "--no-with-secret",
+          description: "Specifies whether a connection has a secret",
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-data-product",
+      description: "Gets the data product",
+      options: [
+        {
+          name: "--domain-identifier",
+          description: "The ID of the domain where the data product lives",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identifier",
+          description: "The ID of the data product",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--revision",
+          description: "The revision of the data product",
           args: {
             name: "string",
           },
@@ -2662,6 +3750,44 @@ const completionSpec: Fig.Spec = {
         {
           name: "--identifier",
           description: "The identifier of the specified Amazon DataZone domain",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-domain-unit",
+      description: "Gets the details of the specified domain unit",
+      options: [
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain where you want to get a domain unit",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identifier",
+          description: "The identifier of the domain unit that you want to get",
           args: {
             name: "string",
           },
@@ -2821,6 +3947,45 @@ const completionSpec: Fig.Spec = {
         {
           name: "--environment-blueprint-identifier",
           description: "He ID of the blueprint",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-environment-credentials",
+      description: "Gets the credentials of an environment in Amazon DataZone",
+      options: [
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the Amazon DataZone domain in which this environment and its credentials exist",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--environment-identifier",
+          description:
+            "The ID of the environment whose credentials this operation gets",
           args: {
             name: "string",
           },
@@ -3074,6 +4239,70 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-job-run",
+      description: "The details of the job run",
+      options: [
+        {
+          name: "--domain-identifier",
+          description: "The ID of the domain",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identifier",
+          description: "The ID of the job run",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-lineage-event",
+      description: "Describes the lineage event",
+      options: [
+        {
+          name: "--domain-identifier",
+          description: "The ID of the domain",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identifier",
+          description: "The ID of the lineage event",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "outfile",
+          description: "Filename where the content will be saved",
+          args: {
+            name: "string",
+          },
+        },
+      ],
+    },
+    {
       name: "get-lineage-node",
       description: "Gets the data lineage node",
       options: [
@@ -3122,7 +4351,8 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "get-listing",
-      description: "Gets a listing (a record of an asset at a given time)",
+      description:
+        "Gets a listing (a record of an asset at a given time). If you specify a listing version, only details that are specific to that version are returned",
       options: [
         {
           name: "--domain-identifier",
@@ -3217,6 +4447,89 @@ const completionSpec: Fig.Spec = {
         {
           name: "--identifier",
           description: "The ID of the project",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-project-profile",
+      description: "The details of the project profile",
+      options: [
+        {
+          name: "--domain-identifier",
+          description: "The ID of the domain",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identifier",
+          description: "The ID of the project profile",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-rule",
+      description:
+        "Gets the details of a rule in Amazon DataZone. A rule is a formal agreement that enforces specific requirements across user workflows (e.g., publishing assets to the catalog, requesting subscriptions, creating projects) within the Amazon DataZone data portal. These rules help maintain consistency, ensure compliance, and uphold governance standards in data management processes. For instance, a metadata enforcement rule can specify the required information for creating a subscription request or publishing a data asset to the catalog, ensuring alignment with organizational standards",
+      options: [
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain where the GetRule action is to be invoked",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identifier",
+          description: "The ID of the rule",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--revision",
+          description: "The revision of the rule",
           args: {
             name: "string",
           },
@@ -3510,6 +4823,91 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "list-asset-filters",
+      description: "Lists asset filters",
+      options: [
+        {
+          name: "--asset-identifier",
+          description: "The ID of the data asset",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain where you want to list asset filters",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of asset filters to return in a single call to ListAssetFilters. When the number of asset filters to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListAssetFilters to list the next set of asset filters",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "When the number of asset filters is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of asset filters, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListAssetFilters to list the next set of asset filters",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--status",
+          description: "The status of the asset filter",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "list-asset-revisions",
       description: "Lists the revisions for the asset",
       options: [
@@ -3539,6 +4937,200 @@ const completionSpec: Fig.Spec = {
           name: "--next-token",
           description:
             "When the number of revisions is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of revisions, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListAssetRevisions to list the next set of revisions",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-connections",
+      description:
+        "Lists connections. In Amazon DataZone, a connection enables you to connect your resources (domains, projects, and environments) to external resources and services",
+      options: [
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain where you want to list connections",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--environment-identifier",
+          description:
+            "The ID of the environment where you want to list connections",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of connections to return in a single call to ListConnections. When the number of connections to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListConnections to list the next set of connections",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of the connection",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "When the number of connections is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of connections, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListConnections to list the next set of connections",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--project-identifier",
+          description:
+            "The ID of the project where you want to list connections",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--sort-by",
+          description: "Specifies how you want to sort the listed connections",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--sort-order",
+          description: "Specifies the sort order for the listed connections",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--type",
+          description: "The type of connection",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-data-product-revisions",
+      description: "Lists data product revisions",
+      options: [
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain of the data product revisions that you want to list",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identifier",
+          description: "The ID of the data product revision",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of asset filters to return in a single call to ListDataProductRevisions. When the number of data product revisions to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListDataProductRevisions to list the next set of data product revisions",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "When the number of data product revisions is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of data product revisions, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListDataProductRevisions to list the next set of data product revisions",
           args: {
             name: "string",
           },
@@ -3761,6 +5353,13 @@ const completionSpec: Fig.Spec = {
       description: "Lists data sources in Amazon DataZone",
       options: [
         {
+          name: "--connection-identifier",
+          description: "The ID of the connection",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--domain-identifier",
           description:
             "The identifier of the Amazon DataZone domain in which to list the data sources",
@@ -3865,6 +5464,85 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "list-domain-units-for-parent",
+      description:
+        "Lists child domain units for the specified parent domain unit",
+      options: [
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain in which you want to list domain units for a parent domain unit",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of domain units to return in a single call to ListDomainUnitsForParent. When the number of domain units to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListDomainUnitsForParent to list the next set of domain units",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "When the number of domain units is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of domain units, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListDomainUnitsForParent to list the next set of domain units",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--parent-domain-unit-identifier",
+          description: "The ID of the parent domain unit",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "list-domains",
       description: "Lists Amazon DataZone domains",
       options: [
@@ -3887,6 +5565,91 @@ const completionSpec: Fig.Spec = {
         {
           name: "--status",
           description: "The status of the data source",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-entity-owners",
+      description: "Lists the entity (domain units) owners",
+      options: [
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain where you want to list entity owners",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--entity-identifier",
+          description: "The ID of the entity that you want to list",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--entity-type",
+          description: "The type of the entity that you want to list",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of entities to return in a single call to ListEntityOwners. When the number of entities to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListEntityOwners to list the next set of entities",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "When the number of entities is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of entities, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListEntityOwners to list the next set of entities",
           args: {
             name: "string",
           },
@@ -4407,6 +6170,196 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "list-job-runs",
+      description: "Lists job runs",
+      options: [
+        {
+          name: "--domain-identifier",
+          description: "The ID of the domain where you want to list job runs",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--job-identifier",
+          description: "The ID of the job run",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of job runs to return in a single call to ListJobRuns. When the number of job runs to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListJobRuns to list the next set of job runs",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "When the number of job runs is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of job runs, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListJobRuns to list the next set of job runs",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--sort-order",
+          description: "Specifies the order in which job runs are to be sorted",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--status",
+          description: "The status of a job run",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-lineage-events",
+      description: "Lists lineage events",
+      options: [
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain where you want to list lineage events",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of lineage events to return in a single call to ListLineageEvents. When the number of lineage events to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListLineageEvents to list the next set of lineage events",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "When the number of lineage events is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of lineage events, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListLineageEvents to list the next set of lineage events",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--processing-status",
+          description: "The processing status of a lineage event",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--sort-order",
+          description: "The sort order of the lineage events",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--timestamp-after",
+          description: "The after timestamp of a lineage event",
+          args: {
+            name: "timestamp",
+          },
+        },
+        {
+          name: "--timestamp-before",
+          description: "The before timestamp of a lineage event",
+          args: {
+            name: "timestamp",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "list-lineage-node-history",
       description: "Lists the history of the specified data lineage node",
       options: [
@@ -4708,6 +6661,100 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "list-policy-grants",
+      description: "Lists policy grants",
+      options: [
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain where you want to list policy grants",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--entity-identifier",
+          description:
+            "The ID of the entity for which you want to list policy grants",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--entity-type",
+          description:
+            "The type of entity for which you want to list policy grants",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of grants to return in a single call to ListPolicyGrants. When the number of grants to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListPolicyGrants to list the next set of grants",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "When the number of grants is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of grants, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListPolicyGrants to list the next set of grants",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--policy-type",
+          description: "The type of policy that you want to list",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "list-project-memberships",
       description: "Lists all members of the specified project",
       options: [
@@ -4754,6 +6801,98 @@ const completionSpec: Fig.Spec = {
         {
           name: "--sort-order",
           description: "The sort order of the project memberships",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-project-profiles",
+      description: "Lists project profiles",
+      options: [
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain where you want to list project profiles",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of project profiles to return in a single call to ListProjectProfiles. When the number of project profiles to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListProjectProfiles to list the next set of project profiles",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of a project profile",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "When the number of project profiles is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of project profiles, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListProjectProfiles to list the next set of project profiles",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--sort-by",
+          description: "Specifies by what to sort project profiles",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--sort-order",
+          description: "Specifies the sort order of the project profiles",
           args: {
             name: "string",
           },
@@ -4893,6 +7032,138 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "list-rules",
+      description:
+        "Lists existing rules. In Amazon DataZone, a rule is a formal agreement that enforces specific requirements across user workflows (e.g., publishing assets to the catalog, requesting subscriptions, creating projects) within the Amazon DataZone data portal. These rules help maintain consistency, ensure compliance, and uphold governance standards in data management processes. For instance, a metadata enforcement rule can specify the required information for creating a subscription request or publishing a data asset to the catalog, ensuring alignment with organizational standards",
+      options: [
+        {
+          name: "--action",
+          description: "The action of the rule",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--asset-types",
+          description: "The asset types of the rule",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--data-product",
+          description: "The data product of the rule",
+        },
+        {
+          name: "--no-data-product",
+          description: "The data product of the rule",
+        },
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain in which the rules are to be listed",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--include-cascaded",
+          description:
+            "Specifies whether to include cascading rules in the results",
+        },
+        {
+          name: "--no-include-cascaded",
+          description:
+            "Specifies whether to include cascading rules in the results",
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of rules to return in a single call to ListRules. When the number of rules to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListRules to list the next set of rules",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "When the number of rules is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of rules, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListRules to list the next set of rules",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--project-ids",
+          description: "The IDs of projects in which rules are to be listed",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--rule-type",
+          description: "The type of the rule",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--target-identifier",
+          description: "The target ID of the rule",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--target-type",
+          description: "The target type of the rule",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "list-subscription-grants",
       description: "Lists subscription grants",
       options: [
@@ -4922,6 +7193,14 @@ const completionSpec: Fig.Spec = {
           name: "--next-token",
           description:
             "When the number of subscription grants is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of subscription grants, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListSubscriptionGrants to list the next set of subscription grants",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--owning-project-id",
+          description:
+            "The ID of the owning project of the subscription grants",
           args: {
             name: "string",
           },
@@ -5065,7 +7344,8 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--status",
-          description: "Specifies the status of the subscription requests",
+          description:
+            "Specifies the status of the subscription requests.  This is not a required parameter, but if not specified, by default, Amazon DataZone returns only PENDING subscription requests",
           args: {
             name: "string",
           },
@@ -5275,7 +7555,8 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--status",
-          description: "The status of the subscriptions that you want to list",
+          description:
+            "The status of the subscriptions that you want to list.  This is not a required parameter, but if not provided, by default, Amazon DataZone returns only APPROVED subscriptions",
           args: {
             name: "string",
           },
@@ -5617,10 +7898,24 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--environment-role-permission-boundary",
+          description: "The environment role permissions boundary",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--manage-access-role-arn",
           description: "The ARN of the manage access role",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--provisioning-configurations",
+          description: "The provisioning configuration of a blueprint",
+          args: {
+            name: "list",
           },
         },
         {
@@ -5751,6 +8046,138 @@ const completionSpec: Fig.Spec = {
             "The identifier of the subscription request that was rejected",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "remove-entity-owner",
+      description: "Removes an owner from an entity",
+      options: [
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that is provided to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain where you want to remove an owner from an entity",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--entity-identifier",
+          description:
+            "The ID of the entity from which you want to remove an owner",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--entity-type",
+          description:
+            "The type of the entity from which you want to remove an owner",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--owner",
+          description: "The owner that you want to remove from an entity",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "remove-policy-grant",
+      description: "Removes a policy grant",
+      options: [
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that is provided to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain where you want to remove a policy grant",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--entity-identifier",
+          description:
+            "The ID of the entity from which you want to remove a policy grant",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--entity-type",
+          description:
+            "The type of the entity from which you want to remove a policy grant",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--policy-type",
+          description: "The type of the policy that you want to remove",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--principal",
+          description:
+            "The principal from which you want to remove a policy grant",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -6519,6 +8946,132 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "update-asset-filter",
+      description: "Updates an asset filter",
+      options: [
+        {
+          name: "--asset-identifier",
+          description: "The ID of the data asset",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--configuration",
+          description: "The configuration of the asset filter",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--description",
+          description: "The description of the asset filter",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain where you want to update an asset filter",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identifier",
+          description: "The ID of the asset filter",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of the asset filter",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-connection",
+      description:
+        "Updates a connection. In Amazon DataZone, a connection enables you to connect your resources (domains, projects, and environments) to external resources and services",
+      options: [
+        {
+          name: "--aws-location",
+          description: "The location where a connection is to be updated",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--description",
+          description: "The description of a connection",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain where a connection is to be updated",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identifier",
+          description: "The ID of the connection to be updated",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--props",
+          description: "The connection props",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "update-data-source",
       description: "Updates the specified data source in Amazon DataZone",
       options: [
@@ -6677,11 +9230,71 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--service-role",
+          description: "The service role of the domain",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--single-sign-on",
           description:
             "The single sign-on option to be updated as part of the UpdateDomain action",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-domain-unit",
+      description: "Updates the domain unit",
+      options: [
+        {
+          name: "--description",
+          description:
+            "The description of the domain unit that you want to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain where you want to update a domain unit",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identifier",
+          description: "The ID of the domain unit that you want to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of the domain unit that you want to update",
+          args: {
+            name: "string",
           },
         },
         {
@@ -7128,9 +9741,16 @@ const completionSpec: Fig.Spec = {
         {
           name: "--domain-identifier",
           description:
-            "The identifier of the Amazon DataZone domain in which a project is to be updated",
+            "The ID of the Amazon DataZone domain where a project is being updated",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--environment-deployment-details",
+          description: "The environment deployment details of the project",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -7154,6 +9774,156 @@ const completionSpec: Fig.Spec = {
             "The name to be updated as part of the UpdateProject action",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-project-profile",
+      description: "Updates a project profile",
+      options: [
+        {
+          name: "--description",
+          description: "The description of a project profile",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--domain-identifier",
+          description:
+            "The ID of the domain where a project profile is to be updated",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--domain-unit-identifier",
+          description:
+            "The ID of the domain unit where a project profile is to be updated",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--environment-configurations",
+          description: "The environment configurations of a project profile",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--identifier",
+          description: "The ID of a project profile that is to be updated",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of a project profile",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--status",
+          description: "The status of a project profile",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-rule",
+      description:
+        "Updates a rule. In Amazon DataZone, a rule is a formal agreement that enforces specific requirements across user workflows (e.g., publishing assets to the catalog, requesting subscriptions, creating projects) within the Amazon DataZone data portal. These rules help maintain consistency, ensure compliance, and uphold governance standards in data management processes. For instance, a metadata enforcement rule can specify the required information for creating a subscription request or publishing a data asset to the catalog, ensuring alignment with organizational standards",
+      options: [
+        {
+          name: "--description",
+          description: "The description of the rule",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--detail",
+          description: "The detail of the rule",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--domain-identifier",
+          description: "The ID of the domain in which a rule is to be updated",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identifier",
+          description: "The ID of the rule that is to be updated",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--include-child-domain-units",
+          description:
+            "Specifies whether to update this rule in the child domain units",
+        },
+        {
+          name: "--no-include-child-domain-units",
+          description:
+            "Specifies whether to update this rule in the child domain units",
+        },
+        {
+          name: "--name",
+          description: "The name of the rule",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--scope",
+          description: "The scrope of the rule",
+          args: {
+            name: "structure",
           },
         },
         {

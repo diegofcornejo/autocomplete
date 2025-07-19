@@ -1,7 +1,7 @@
 const completionSpec: Fig.Spec = {
   name: "ivs",
   description:
-    'Introduction  The Amazon Interactive Video Service (IVS) API is REST compatible, using a standard HTTP API and an Amazon Web Services EventBridge event stream for responses. JSON is used for both requests and responses, including errors. The API is an Amazon Web Services regional service. For a list of supported regions and Amazon IVS HTTPS service endpoints, see the Amazon IVS page in the Amazon Web Services General Reference.   All API request parameters and URLs are case sensitive.    For a summary of notable documentation changes in each release, see  Document History.  Allowed Header Values      Accept:  application/json     Accept-Encoding:  gzip, deflate     Content-Type: application/json    Key Concepts     Channel \u2014 Stores configuration data related to your live stream. You first create a channel and then use the channel\u2019s stream key to start your live stream.    Stream key \u2014 An identifier assigned by Amazon IVS when you create a channel, which is then used to authorize streaming.  Treat the stream key like a secret, since it allows anyone to stream to the channel.      Playback key pair \u2014 Video playback may be restricted using playback-authorization tokens, which use public-key encryption. A playback key pair is the public-private pair of keys used to sign and validate the playback-authorization token.    Recording configuration \u2014 Stores configuration related to recording a live stream and where to store the recorded content. Multiple channels can reference the same recording configuration.    Playback restriction policy \u2014 Restricts playback by countries and/or origin sites.   For more information about your IVS live stream, also see Getting Started with IVS Low-Latency Streaming.  Tagging  A tag is a metadata label that you assign to an Amazon Web Services resource. A tag comprises a key and a value, both set by you. For example, you might set a tag as topic:nature to label a particular video category. See Tagging Amazon Web Services Resources for more information, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there. Tags can help you identify and organize your Amazon Web Services resources. For example, you can use the same tag for different resources to indicate that they are related. You can also use tags to manage access (see  Access Tags).  The Amazon IVS API has these tag-related endpoints: TagResource, UntagResource, and ListTagsForResource. The following resources support tagging: Channels, Stream Keys, Playback Key Pairs, and Recording Configurations. At most 50 tags can be applied to a resource.   Authentication versus Authorization  Note the differences between these concepts:    Authentication is about verifying identity. You need to be authenticated to sign Amazon IVS API requests.    Authorization is about granting permissions. Your IAM roles need to have permissions for Amazon IVS API requests. In addition, authorization is needed to view Amazon IVS private channels. (Private channels are channels that are enabled for "playback authorization.")    Authentication  All Amazon IVS API requests must be authenticated with a signature. The Amazon Web Services Command-Line Interface (CLI) and Amazon IVS Player SDKs take care of signing the underlying API calls for you. However, if your application calls the Amazon IVS API directly, it\u2019s your responsibility to sign the requests. You generate a signature using valid Amazon Web Services credentials that have permission to perform the requested action. For example, you must sign PutMetadata requests with a signature generated from a user account that has the ivs:PutMetadata permission. For more information:   Authentication and generating signatures \u2014 See Authenticating Requests (Amazon Web Services Signature Version 4) in the Amazon Web Services General Reference.   Managing Amazon IVS permissions \u2014 See Identity and Access Management on the Security page of the Amazon IVS User Guide.    Amazon Resource Names (ARNs)  ARNs uniquely identify AWS resources. An ARN is required when you need to specify a resource unambiguously across all of AWS, such as in IAM policies and API calls. For more information, see Amazon Resource Names in the AWS General Reference.  Channel Endpoints     CreateChannel \u2014 Creates a new channel and an associated stream key to start streaming.    GetChannel \u2014 Gets the channel configuration for the specified channel ARN.    BatchGetChannel \u2014 Performs GetChannel on multiple ARNs simultaneously.    ListChannels \u2014 Gets summary information about all channels in your account, in the Amazon Web Services region where the API request is processed. This list can be filtered to match a specified name or recording-configuration ARN. Filters are mutually exclusive and cannot be used together. If you try to use both filters, you will get an error (409 Conflict Exception).    UpdateChannel \u2014 Updates a channel\'s configuration. This does not affect an ongoing stream of this channel. You must stop and restart the stream for the changes to take effect.    DeleteChannel \u2014 Deletes the specified channel.    Playback Restriction Policy Endpoints     CreatePlaybackRestrictionPolicy \u2014 Creates a new playback restriction policy, for constraining playback by countries and/or origins.    DeletePlaybackRestrictionPolicy \u2014 Deletes the specified playback restriction policy    GetPlaybackRestrictionPolicy \u2014 Gets the specified playback restriction policy.    ListPlaybackRestrictionPolicies \u2014 Gets summary information about playback restriction policies.    UpdatePlaybackRestrictionPolicy \u2014 Updates a specified playback restriction policy.    Private Channel Endpoints  For more information, see Setting Up Private Channels in the Amazon IVS User Guide.    ImportPlaybackKeyPair \u2014 Imports the public portion of a new key pair and returns its arn and fingerprint. The privateKey can then be used to generate viewer authorization tokens, to grant viewers access to private channels (channels enabled for playback authorization).    GetPlaybackKeyPair \u2014 Gets a specified playback authorization key pair and returns the arn and fingerprint. The privateKey held by the caller can be used to generate viewer authorization tokens, to grant viewers access to private channels.    ListPlaybackKeyPairs \u2014 Gets summary information about playback key pairs.    DeletePlaybackKeyPair \u2014 Deletes a specified authorization key pair. This invalidates future viewer tokens generated using the key pair\u2019s privateKey.    StartViewerSessionRevocation \u2014 Starts the process of revoking the viewer session associated with a specified channel ARN and viewer ID. Optionally, you can provide a version to revoke viewer sessions less than and including that version.    BatchStartViewerSessionRevocation \u2014 Performs StartViewerSessionRevocation on multiple channel ARN and viewer ID pairs simultaneously.    Recording Configuration Endpoints     CreateRecordingConfiguration \u2014 Creates a new recording configuration, used to enable recording to Amazon S3.    GetRecordingConfiguration \u2014 Gets the recording-configuration metadata for the specified ARN.    ListRecordingConfigurations \u2014 Gets summary information about all recording configurations in your account, in the Amazon Web Services region where the API request is processed.    DeleteRecordingConfiguration \u2014 Deletes the recording configuration for the specified ARN.    Stream Endpoints     GetStream \u2014 Gets information about the active (live) stream on a specified channel.    GetStreamSession \u2014 Gets metadata on a specified stream.    ListStreams \u2014 Gets summary information about live streams in your account, in the Amazon Web Services region where the API request is processed.    ListStreamSessions \u2014 Gets a summary of current and previous streams for a specified channel in your account, in the AWS region where the API request is processed.    StopStream \u2014 Disconnects the incoming RTMPS stream for the specified channel. Can be used in conjunction with DeleteStreamKey to prevent further streaming to a channel.    PutMetadata \u2014 Inserts metadata into the active stream of the specified channel. At most 5 requests per second per channel are allowed, each with a maximum 1 KB payload. (If 5 TPS is not sufficient for your needs, we recommend batching your data into a single PutMetadata call.) At most 155 requests per second per account are allowed.    Stream Key Endpoints     CreateStreamKey \u2014 Creates a stream key, used to initiate a stream, for the specified channel ARN.    GetStreamKey \u2014 Gets stream key information for the specified ARN.    BatchGetStreamKey \u2014 Performs GetStreamKey on multiple ARNs simultaneously.    ListStreamKeys \u2014 Gets summary information about stream keys for the specified channel.    DeleteStreamKey \u2014 Deletes the stream key for the specified ARN, so it can no longer be used to stream.    Amazon Web Services Tags Endpoints     TagResource \u2014 Adds or updates tags for the Amazon Web Services resource with the specified ARN.    UntagResource \u2014 Removes tags from the resource with the specified ARN.    ListTagsForResource \u2014 Gets information about Amazon Web Services tags for the specified ARN',
+    'Introduction  The Amazon Interactive Video Service (IVS) API is REST compatible, using a standard HTTP API and an Amazon Web Services EventBridge event stream for responses. JSON is used for both requests and responses, including errors. The API is an Amazon Web Services regional service. For a list of supported regions and Amazon IVS HTTPS service endpoints, see the Amazon IVS page in the Amazon Web Services General Reference.   All API request parameters and URLs are case sensitive.    For a summary of notable documentation changes in each release, see  Document History.  Allowed Header Values      Accept:  application/json     Accept-Encoding:  gzip, deflate     Content-Type: application/json    Key Concepts     Channel \u2014 Stores configuration data related to your live stream. You first create a channel and then use the channel\u2019s stream key to start your live stream.    Stream key \u2014 An identifier assigned by Amazon IVS when you create a channel, which is then used to authorize streaming.  Treat the stream key like a secret, since it allows anyone to stream to the channel.      Playback key pair \u2014 Video playback may be restricted using playback-authorization tokens, which use public-key encryption. A playback key pair is the public-private pair of keys used to sign and validate the playback-authorization token.    Recording configuration \u2014 Stores configuration related to recording a live stream and where to store the recorded content. Multiple channels can reference the same recording configuration.    Playback restriction policy \u2014 Restricts playback by countries and/or origin sites.   For more information about your IVS live stream, also see Getting Started with IVS Low-Latency Streaming.  Tagging  A tag is a metadata label that you assign to an Amazon Web Services resource. A tag comprises a key and a value, both set by you. For example, you might set a tag as topic:nature to label a particular video category. See Best practices and strategies in Tagging Amazon Web Services Resources and Tag Editor for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there. Tags can help you identify and organize your Amazon Web Services resources. For example, you can use the same tag for different resources to indicate that they are related. You can also use tags to manage access (see  Access Tags).  The Amazon IVS API has these tag-related operations: TagResource, UntagResource, and ListTagsForResource. The following resources support tagging: Channels, Stream Keys, Playback Key Pairs, and Recording Configurations. At most 50 tags can be applied to a resource.   Authentication versus Authorization  Note the differences between these concepts:    Authentication is about verifying identity. You need to be authenticated to sign Amazon IVS API requests.    Authorization is about granting permissions. Your IAM roles need to have permissions for Amazon IVS API requests. In addition, authorization is needed to view Amazon IVS private channels. (Private channels are channels that are enabled for "playback authorization.")    Authentication  All Amazon IVS API requests must be authenticated with a signature. The Amazon Web Services Command-Line Interface (CLI) and Amazon IVS Player SDKs take care of signing the underlying API calls for you. However, if your application calls the Amazon IVS API directly, it\u2019s your responsibility to sign the requests. You generate a signature using valid Amazon Web Services credentials that have permission to perform the requested action. For example, you must sign PutMetadata requests with a signature generated from a user account that has the ivs:PutMetadata permission. For more information:   Authentication and generating signatures \u2014 See Authenticating Requests (Amazon Web Services Signature Version 4) in the Amazon Web Services General Reference.   Managing Amazon IVS permissions \u2014 See Identity and Access Management on the Security page of the Amazon IVS User Guide.    Amazon Resource Names (ARNs)  ARNs uniquely identify AWS resources. An ARN is required when you need to specify a resource unambiguously across all of AWS, such as in IAM policies and API calls. For more information, see Amazon Resource Names in the AWS General Reference',
   subcommands: [
     {
       name: "batch-get-channel",
@@ -111,6 +111,14 @@ const completionSpec: Fig.Spec = {
             "Whether the channel is private (enabled for playback authorization). Default: false",
         },
         {
+          name: "--container-format",
+          description:
+            "Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--insecure-ingest",
           description:
             "Whether the channel allows insecure RTMP and SRT ingest. Default: false",
@@ -126,6 +134,14 @@ const completionSpec: Fig.Spec = {
             "Channel latency mode. Use NORMAL to broadcast and deliver live video up to Full HD. Use LOW for near-real-time interaction with viewers. Default: LOW",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--multitrack-input-configuration",
+          description:
+            "Object specifying multitrack input configuration. Default: no multitrack input configuration is specified",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -162,7 +178,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tags",
           description:
-            'Array of 1-50 maps, each of the form string:string (key:value). See Tagging Amazon Web Services Resources for more information, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there',
+            'Array of 1-50 maps, each of the form string:string (key:value). See Best practices and strategies in Tagging Amazon Web Services Resources and Tag Editor for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there',
           args: {
             name: "map",
           },
@@ -236,7 +252,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tags",
           description:
-            'Array of 1-50 maps, each of the form string:string (key:value). See Tagging Amazon Web Services Resources for more information, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there',
+            'Array of 1-50 maps, each of the form string:string (key:value). See Best practices and strategies in Tagging Amazon Web Services Resources and Tag Editor for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there',
           args: {
             name: "map",
           },
@@ -300,7 +316,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tags",
           description:
-            'Array of 1-50 maps, each of the form string:string (key:value). See Tagging Amazon Web Services Resources for more information, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there',
+            'Array of 1-50 maps, each of the form string:string (key:value). See Best practices and strategies in Tagging Amazon Web Services Resources and Tag Editor for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there',
           args: {
             name: "map",
           },
@@ -347,7 +363,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tags",
           description:
-            'Array of 1-50 maps, each of the form string:string (key:value). See Tagging Amazon Web Services Resources for more information, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there',
+            'Array of 1-50 maps, each of the form string:string (key:value). See Best practices and strategies in Tagging Amazon Web Services Resources and Tag Editor for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there',
           args: {
             name: "map",
           },
@@ -770,7 +786,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tags",
           description:
-            'Any tags provided with the request are added to the playback key pair tags. See Tagging Amazon Web Services Resources for more information, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there',
+            'Any tags provided with the request are added to the playback key pair tags. See Best practices and strategies in Tagging Amazon Web Services Resources and Tag Editor for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there',
           args: {
             name: "map",
           },
@@ -1401,7 +1417,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tags",
           description:
-            'Array of tags to be added or updated. Array of maps, each of the form string:string (key:value). See Tagging Amazon Web Services Resources for more information, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there',
+            'Array of tags to be added or updated. Array of maps, each of the form string:string (key:value). See Best practices and strategies in Tagging Amazon Web Services Resources and Tag Editor for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there',
           args: {
             name: "map",
           },
@@ -1440,7 +1456,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tag-keys",
           description:
-            'Array of tags to be removed. Array of maps, each of the form string:string (key:value). See Tagging Amazon Web Services Resources for more information, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there',
+            'Array of tags to be removed. Array of maps, each of the form string:string (key:value). See Best practices and strategies in Tagging Amazon Web Services Resources and Tag Editor for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there',
           args: {
             name: "list",
           },
@@ -1487,6 +1503,14 @@ const completionSpec: Fig.Spec = {
             "Whether the channel is private (enabled for playback authorization)",
         },
         {
+          name: "--container-format",
+          description:
+            "Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--insecure-ingest",
           description:
             "Whether the channel allows insecure RTMP and SRT ingest. Default: false",
@@ -1502,6 +1526,14 @@ const completionSpec: Fig.Spec = {
             "Channel latency mode. Use NORMAL to broadcast and deliver live video up to Full HD. Use LOW for near-real-time interaction with viewers",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--multitrack-input-configuration",
+          description:
+            "Object specifying multitrack input configuration. Default: no multitrack input configuration is specified",
+          args: {
+            name: "structure",
           },
         },
         {
